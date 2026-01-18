@@ -7,6 +7,7 @@ import { Footer } from '@/components/Footer'
 
 // 禁用静态生成
 export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
 
