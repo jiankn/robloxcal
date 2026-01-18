@@ -250,6 +250,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         }
     }
 
+    // ============================================
+    // 通用工具页面
+    // ============================================
+    sitemapEntries.push({
+        url: `${BASE_URL}/roblox-tax-calculator`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.9, // 高价值工具页面
+    })
+
     // 通用页面（不属于特定游戏）
     sitemapEntries.push({
         url: `${BASE_URL}/privacy`,

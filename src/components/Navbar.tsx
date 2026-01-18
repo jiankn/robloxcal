@@ -33,7 +33,10 @@ import {
     LayoutGrid,
     Flame,
     Clock,
-    Zap
+    Zap,
+    Calculator,
+    Percent,
+    Wrench
 } from 'lucide-react'
 import { GameSearch, recordGameVisit, getRecentGames } from '@/components/GameSearch'
 import { getNavItems } from '@/lib/game-nav-config'
@@ -170,6 +173,45 @@ function CodesDropdown() {
     )
 }
 
+// Tools下拉菜单组件
+function ToolsDropdown() {
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-800/50 px-4">
+                    <Wrench className="h-4 w-4 mr-2" />
+                    Tools
+                    <ChevronDown className="h-3 w-3 ml-1" />
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-72 bg-zinc-900 border-zinc-700">
+                {/* 标题 */}
+                <DropdownMenuLabel className="flex items-center gap-2 text-emerald-400">
+                    <Calculator className="h-4 w-4" />
+                    Utility Calculators
+                </DropdownMenuLabel>
+
+                {/* Robux Tax Calculator */}
+                <DropdownMenuItem asChild>
+                    <Link
+                        href="/roblox-tax-calculator"
+                        className="flex items-center gap-3 cursor-pointer py-2.5"
+                    >
+                        <Percent className="h-4 w-4 text-green-400" />
+                        <div className="flex-1">
+                            <div className="font-medium text-white">Robux Tax Calculator</div>
+                            <div className="text-xs text-zinc-500">
+                                Gamepass & PLS DONATE fees
+                            </div>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-zinc-600" />
+                    </Link>
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    )
+}
+
 // 首页全局导航
 function GlobalNavbar() {
     const pathname = usePathname()
@@ -196,6 +238,8 @@ function GlobalNavbar() {
                         <GamesDropdown />
                         {/* Codes下拉菜单 */}
                         <CodesDropdown />
+                        {/* Tools下拉菜单 */}
+                        <ToolsDropdown />
                         <Link href="/#faq">
                             <Button variant="ghost" size="sm" className="text-zinc-400 hover:text-white hover:bg-zinc-800/50 px-4">
                                 <HelpCircle className="h-4 w-4 mr-2" />

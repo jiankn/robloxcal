@@ -19,7 +19,9 @@ import {
   Sword,
   Bomb,
   Coins,
-  Castle
+  Castle,
+  Percent,
+  Wrench
 } from 'lucide-react'
 
 // 图标映射表
@@ -183,6 +185,75 @@ export default function HomePage() {
           </div>
         </div>
       </header>
+
+      {/* ========== POPULAR TOOLS ========== */}
+      <section className="rc-container pb-8">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="p-2 rounded-lg bg-emerald-500/20">
+            <Wrench className="h-5 w-5 text-emerald-400" />
+          </div>
+          <div>
+            <h2 className="text-xl font-bold text-white">Popular Tools</h2>
+            <p className="text-sm text-zinc-500">Utility calculators for Roblox</p>
+          </div>
+        </div>
+
+        <Link href="/roblox-tax-calculator" className="group block">
+          <Card className="glass-card border-zinc-800/50 hover-lift hover-glow transition-all hover:border-emerald-500/30 overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex flex-col sm:flex-row">
+                {/* 左侧：工具信息 */}
+                <div className="flex-1 p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-xl bg-emerald-500/10 group-hover:bg-emerald-500/20 transition-colors shrink-0">
+                      <Percent className="h-6 w-6 text-emerald-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <h3 className="text-lg font-bold text-white">Robux Tax Calculator</h3>
+                        <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-500/30 text-xs">
+                          New
+                        </Badge>
+                      </div>
+                      <p className="text-zinc-400 text-sm mb-3">Calculate Gamepass & PLS DONATE fees (30% Marketplace Fee)</p>
+                      <div className="flex items-center gap-4 text-xs text-zinc-500">
+                        <div className="flex items-center gap-1">
+                          <Calculator className="h-3.5 w-3.5" />
+                          Instant calculation
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Gift className="h-3.5 w-3.5" />
+                          PLS DONATE support
+                        </div>
+                      </div>
+                    </div>
+                    <ChevronRight className="h-5 w-5 text-zinc-600 group-hover:text-emerald-400 transition-all group-hover:translate-x-1 shrink-0 mt-1" />
+                  </div>
+                </div>
+
+                {/* 右侧：快速预览 */}
+                <div className="border-t sm:border-t-0 sm:border-l border-zinc-800/50 p-6 sm:w-56 bg-zinc-900/30">
+                  <div className="text-xs text-zinc-500 mb-2">Quick Example</div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-zinc-400">Listed:</span>
+                      <span className="text-white font-medium">1,000 R$</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-zinc-400">Tax (30%):</span>
+                      <span className="text-red-400">-300 R$</span>
+                    </div>
+                    <div className="flex justify-between text-sm border-t border-zinc-800 pt-2">
+                      <span className="text-zinc-400">You get:</span>
+                      <span className="text-emerald-400 font-bold">700 R$</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+      </section>
 
       {/* ========== FEATURED GAMES (id="games") ========== */}
       <section id="games" className="rc-container rc-section scroll-mt-20">

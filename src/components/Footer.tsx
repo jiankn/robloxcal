@@ -46,6 +46,14 @@ export function Footer() {
                             ))}
                             <li>
                                 <Link
+                                    href="/roblox-tax-calculator"
+                                    className="text-emerald-400 hover:text-emerald-300 transition-colors"
+                                >
+                                    Robux Tax Calculator
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
                                     href="/"
                                     className="text-purple-400 hover:text-purple-300 transition-colors"
                                 >
