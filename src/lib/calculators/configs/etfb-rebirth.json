@@ -1,0 +1,160 @@
+{
+    "id": "etfb-rebirth-calculator",
+    "gameSlug": "escape-tsunami-for-brainrots",
+    "toolSlug": "etfb-rebirth-calculator",
+    "engine": "rebirth",
+    "seo": {
+        "title": "Escape Tsunami For Brainrots Rebirth Calculator (2026) — RobloxCal",
+        "description": "Use our free Escape Tsunami For Brainrots rebirth calculator to find the optimal rebirth timing. Enter your stats and get instant results. Updated January 2026.",
+        "primaryKeyword": "escape tsunami for brainrots rebirth calculator",
+        "secondaryKeywords": [
+            "rebirth levels",
+            "money multiplier",
+            "speed requirement",
+            "when to rebirth",
+            "etfb rebirth guide",
+            "escape tsunami rebirth timing"
+        ]
+    },
+    "inputs": [
+        {
+            "key": "currentIncomePerMinute",
+            "label": "Current Income (per minute)",
+            "type": "number",
+            "min": 0,
+            "default": 1000,
+            "helpText": "Your current money earned per minute before rebirth",
+            "unit": "$/min"
+        },
+        {
+            "key": "currentMultiplier",
+            "label": "Current Multiplier",
+            "type": "number",
+            "min": 1,
+            "default": 1,
+            "step": 0.1,
+            "helpText": "Your current money multiplier (check in stats)"
+        },
+        {
+            "key": "newMultiplier",
+            "label": "New Multiplier (After Rebirth)",
+            "type": "number",
+            "min": 1,
+            "default": 1.5,
+            "step": 0.1,
+            "helpText": "The multiplier you'll have after rebirthing"
+        },
+        {
+            "key": "rebirthCost",
+            "label": "Rebirth Time Cost",
+            "type": "number",
+            "min": 0,
+            "default": 5,
+            "helpText": "How many minutes it takes to reach your current progress after rebirth",
+            "unit": "minutes"
+        },
+        {
+            "key": "rebirthCostType",
+            "label": "Cost Type",
+            "type": "select",
+            "default": "time",
+            "options": [
+                {
+                    "value": "time",
+                    "label": "Time (minutes to recover)"
+                },
+                {
+                    "value": "currency",
+                    "label": "Currency (money cost)"
+                }
+            ]
+        }
+    ],
+    "outputs": [
+        {
+            "key": "recommendation",
+            "label": "Recommendation",
+            "format": "text",
+            "highlight": true
+        },
+        {
+            "key": "breakEvenFormatted",
+            "label": "Break-even Time",
+            "format": "time"
+        },
+        {
+            "key": "multiplierGain",
+            "label": "Multiplier Gain",
+            "format": "number",
+            "precision": 2
+        },
+        {
+            "key": "incomeIncreasePercent",
+            "label": "Income Increase",
+            "format": "percentage",
+            "precision": 1
+        },
+        {
+            "key": "bonusIncomePerMinute",
+            "label": "Bonus Income/min",
+            "format": "currency"
+        }
+    ],
+    "examples": [
+        {
+            "title": "Early Game Rebirth",
+            "scenario": "You're making $1,000/min with a 1x multiplier. Rebirthing will give you 1.5x multiplier, and it takes about 5 minutes to get back to your current position.",
+            "inputs": {
+                "currentIncomePerMinute": 1000,
+                "currentMultiplier": 1,
+                "newMultiplier": 1.5,
+                "rebirthCost": 5,
+                "rebirthCostType": "time"
+            },
+            "explanation": "With a 50% income boost, you'll earn an extra $500/min. You'll break even in about 10 minutes, making this a great time to rebirth!"
+        },
+        {
+            "title": "Late Game Decision",
+            "scenario": "You're earning $50,000/min with a 3x multiplier. The next rebirth gives 3.2x multiplier but takes 30 minutes to recover your progress.",
+            "inputs": {
+                "currentIncomePerMinute": 50000,
+                "currentMultiplier": 3,
+                "newMultiplier": 3.2,
+                "rebirthCost": 30,
+                "rebirthCostType": "time"
+            },
+            "explanation": "The 6.7% multiplier increase gives you ~$3,333 extra per minute. However, with a 30-minute recovery time, break-even takes much longer. Consider waiting for a better rebirth opportunity."
+        }
+    ],
+    "faqs": [
+        {
+            "question": "When should I rebirth in Escape Tsunami For Brainrots?",
+            "answer": "Rebirth when the break-even time is less than 30 minutes. This calculator helps you determine the optimal rebirth timing based on your current income and the new multiplier you'll receive."
+        },
+        {
+            "question": "How does the money multiplier work in Escape Tsunami?",
+            "answer": "The money multiplier increases all your earnings by that factor. A 2x multiplier means you earn double the base amount. Each rebirth level increases this multiplier."
+        },
+        {
+            "question": "What is break-even time?",
+            "answer": "Break-even time is how long it takes for the increased earnings from rebirthing to make up for the time lost resetting your progress. Shorter break-even times mean rebirthing is more worthwhile."
+        },
+        {
+            "question": "Should I always rebirth when available?",
+            "answer": "Not necessarily. Only rebirth when the multiplier gain is significant enough. Use this calculator to determine if the break-even time is acceptable for your play session."
+        },
+        {
+            "question": "How do I check my current multiplier in game?",
+            "answer": "Open your stats menu in Escape Tsunami For Brainrots. Your current money multiplier should be displayed there, along with your rebirth level."
+        },
+        {
+            "question": "Does rebirth reset my speed upgrades?",
+            "answer": "This depends on the game's specific rebirth mechanics. Generally, some upgrades are permanent while others reset. Check the in-game rebirth info for details."
+        },
+        {
+            "question": "What's the best rebirth strategy for beginners?",
+            "answer": "For beginners, rebirth early and often when the multiplier gain is 0.5x or more. As you progress, be more selective since recovery times increase."
+        }
+    ],
+    "lastUpdated": "January 2026"
+}

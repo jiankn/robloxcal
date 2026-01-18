@@ -121,6 +121,146 @@ export const STATIC_GAMES: Record<string, GameConfig> = {
                 'rvb tycoon tier list'
             ]
         }
+    },
+    // ===== TOP 6 EXPANSION (Jan 2026) =====
+    'escape-tsunami-for-brainrots': {
+        game_key: 'etfb',
+        slug: 'escape-tsunami-for-brainrots',
+        display_name: 'Escape Tsunami',
+        full_name: 'Escape Tsunami For Brainrots',
+        short_name: 'ETFB',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#0ea5e9', icon: 'waves' },  // Ocean blue
+        seo: {
+            title_template: '{page} | Escape Tsunami Calculator 2026',
+            description: 'Escape Tsunami For Brainrots calculator 2026. Rebirth advisor, upgrade ROI calculator, and speed planner for optimal progression.',
+            keywords: [
+                'escape tsunami for brainrots calculator',
+                'escape tsunami rebirth calculator',
+                'escape tsunami upgrade calculator',
+                'escape tsunami speed calculator',
+                'etfb calculator',
+                'escape tsunami money multiplier',
+                'escape tsunami guide 2026'
+            ]
+        }
+    },
+    'steal-a-brainrot': {
+        game_key: 'sab',
+        slug: 'steal-a-brainrot',
+        display_name: 'Steal a Brainrot',
+        full_name: 'Steal a Brainrot',
+        short_name: 'SAB',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#f97316', icon: 'skull' },  // Orange
+        seo: {
+            title_template: '{page} | Steal a Brainrot Calculator 2026',
+            description: 'Steal a Brainrot calculator 2026. Income calculator, ROI optimizer, and drop rate calculator for maximum earnings.',
+            keywords: [
+                'steal a brainrot calculator',
+                'steal a brainrot income calculator',
+                'steal a brainrot ROI calculator',
+                'steal a brainrot drop rate',
+                'sab calculator',
+                'steal a brainrot guide 2026'
+            ]
+        }
+    },
+    'fish-it': {
+        game_key: 'fishit',
+        slug: 'fish-it',
+        display_name: 'Fish It!',
+        full_name: 'Fish It!',
+        short_name: 'Fish It',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#14b8a6', icon: 'fish' },  // Teal
+        seo: {
+            title_template: '{page} | Fish It Calculator 2026',
+            description: 'Fish It calculator 2026. Luck calculator, rare fish ETA, and profit per hour optimizer for fishing success.',
+            keywords: [
+                'fish it calculator',
+                'fish it luck calculator',
+                'fish it rare fish calculator',
+                'fish it profit calculator',
+                'fish it drop rate',
+                'fish it guide 2026'
+            ]
+        }
+    },
+    'fisch': {
+        game_key: 'fisch',
+        slug: 'fisch',
+        display_name: 'Fisch',
+        full_name: 'Fisch',
+        short_name: 'Fisch',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#3b82f6', icon: 'anchor' },  // Blue
+        seo: {
+            title_template: '{page} | Fisch Calculator 2026',
+            description: 'Fisch calculator 2026. Fish value calculator, target fish solver, and profit optimizer for the best fishing strategy.',
+            keywords: [
+                'fisch calculator',
+                'fisch fish value calculator',
+                'fisch target fish calculator',
+                'fisch profit calculator',
+                'fisch mutation multiplier',
+                'fisch guide 2026'
+            ]
+        }
+    },
+    'bee-swarm-simulator': {
+        game_key: 'bss',
+        slug: 'bee-swarm-simulator',
+        display_name: 'Bee Swarm',
+        full_name: 'Bee Swarm Simulator',
+        short_name: 'BSS',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#eab308', icon: 'hexagon' },  // Yellow/Honey
+        seo: {
+            title_template: '{page} | Bee Swarm Simulator Calculator 2026',
+            description: 'Bee Swarm Simulator honey calculator 2026. Pollen to honey converter, honey per pollen calculator, and hive bonus optimizer.',
+            keywords: [
+                'bee swarm simulator calculator',
+                'bee swarm honey calculator',
+                'bss pollen to honey',
+                'bee swarm honey per pollen',
+                'bss converter',
+                'bee swarm simulator guide 2026'
+            ]
+        }
+    },
+    'grow-a-garden': {
+        game_key: 'gag',
+        slug: 'grow-a-garden',
+        display_name: 'Grow a Garden',
+        full_name: 'Grow a Garden',
+        short_name: 'GAG',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#22c55e', icon: 'flower' },  // Green
+        seo: {
+            title_template: '{page} | Grow a Garden Calculator 2026',
+            description: 'Grow a Garden calculator 2026. Crop value calculator, pet weight calculator, and pet XP optimizer for maximum garden profits.',
+            keywords: [
+                'grow a garden calculator',
+                'grow a garden crop value',
+                'grow a garden pet weight',
+                'grow a garden pet xp',
+                'gag calculator',
+                'grow a garden guide 2026'
+            ]
+        }
     }
 }
 
