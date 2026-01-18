@@ -123,7 +123,7 @@ export function Footer() {
                     <p className="text-xs text-zinc-400 mb-2">
                         RobloxCal is a fan-made tool and is not affiliated with Roblox Corporation or game developers.
                     </p>
-                    <p className="text-xs text-zinc-500">
+                    <p className="text-xs text-zinc-400">
                         © {new Date().getFullYear()} RobloxCal. Made with ❤️ for the community.
                     </p>
                 </div>

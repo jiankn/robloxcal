@@ -222,7 +222,7 @@ function GlobalNavbar() {
                     {/* Mobile Menu */}
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild className="md:hidden">
-                            <Button variant="ghost" size="icon" className="text-zinc-400">
+                            <Button variant="ghost" size="icon" className="text-zinc-400" aria-label="Open main menu">
                                 <Menu className="h-5 w-5" />
                             </Button>
                         </SheetTrigger>
@@ -514,7 +514,7 @@ function GameNavbar({ game }: { game: GameConfig }) {
                 <div className="md:hidden flex h-11 items-center justify-between">
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" size="sm" className="text-zinc-400">
+                            <Button variant="ghost" size="sm" className="text-zinc-400" aria-label="Open game menu">
                                 <Menu className="h-5 w-5 mr-2" />
                                 Menu
                             </Button>
