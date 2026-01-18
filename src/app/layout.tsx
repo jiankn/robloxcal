@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { CookieBanner } from "@/components/CookieBanner";
 import { DisclaimerBanner } from "@/components/DisclaimerBanner";
+import { AuthRedirectHandler } from "@/components/AuthRedirectHandler";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,6 +62,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-zinc-950 text-zinc-100`}
         suppressHydrationWarning
       >
+        <AuthRedirectHandler />
         <DisclaimerBanner />
         {children}
         <CookieBanner />
