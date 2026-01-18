@@ -1,13 +1,10 @@
-import { Metadata } from 'next'
+'use client'
+
 import { Mail, MessageSquare, Clock, ShieldCheck } from 'lucide-react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { ProtectedEmail, ProtectedEmailButton } from '@/components/ProtectedEmail'
 import Link from 'next/link'
-
-export const metadata: Metadata = {
-    title: 'Contact Us | RobloxCal',
-    description: 'Get in touch with the RobloxCal team. We are here to help with questions about our Roblox game tools and guides.',
-}
 
 export default function ContactPage() {
     return (
@@ -37,25 +34,22 @@ export default function ContactPage() {
                         </CardHeader>
                         <CardContent className="space-y-6">
                             <div className="text-center">
-                                <a
-                                    href="mailto:support@robloxcal.com"
+                                <ProtectedEmail
+                                    user="support"
+                                    domain="robloxcal.com"
                                     className="text-2xl font-semibold text-purple-400 hover:text-purple-300 transition-colors"
-                                >
-                                    support@robloxcal.com
-                                </a>
+                                />
                             </div>
 
                             <div className="text-center">
-                                <Button
-                                    asChild
-                                    size="lg"
-                                    className="bg-purple-600 hover:bg-purple-500 text-white"
+                                <ProtectedEmailButton
+                                    user="support"
+                                    domain="robloxcal.com"
+                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 bg-purple-600 hover:bg-purple-500 text-white h-11 px-8"
                                 >
-                                    <a href="mailto:support@robloxcal.com">
-                                        <Mail className="w-5 h-5 mr-2" />
-                                        Send Email
-                                    </a>
-                                </Button>
+                                    <Mail className="w-5 h-5" />
+                                    Send Email
+                                </ProtectedEmailButton>
                             </div>
 
                             <div className="border-t border-zinc-800 pt-6 space-y-4">

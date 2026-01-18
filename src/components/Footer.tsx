@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { Sparkles } from 'lucide-react'
 import { getAllActiveGames } from '@/lib/game-config'
+import { ProtectedEmail } from '@/components/ProtectedEmail'
 
 export function Footer() {
     const featuredGames = getAllActiveGames().filter(g => g.is_featured).slice(0, 5)
@@ -103,12 +104,12 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <a
-                                    href="mailto:support@robloxcal.com?subject=Bug%20report%20(website)"
+                                <ProtectedEmail
+                                    user="support"
+                                    domain="robloxcal.com"
                                     className="text-zinc-400 hover:text-white transition-colors"
-                                >
-                                    Bug Report
-                                </a>
+                                />
+                                <span className="text-zinc-500 text-xs ml-1">(Bug Report)</span>
                             </li>
                             <li>
                                 <span className="text-zinc-400">Response time: 24–48h</span>
