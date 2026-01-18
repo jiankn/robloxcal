@@ -1,6 +1,9 @@
 import { createSessionClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
+// Required for Cloudflare Pages
+export const runtime = 'edge'
+
 export async function GET(request: Request) {
     const requestUrl = new URL(request.url)
 
