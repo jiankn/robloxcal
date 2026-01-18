@@ -260,6 +260,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.9, // 高价值工具页面
     })
 
+    // ============================================
+    // 信息页面
+    // ============================================
+    sitemapEntries.push({
+        url: `${BASE_URL}/about`,
+        lastModified: currentDate,
+        changeFrequency: 'monthly',
+        priority: 0.5,
+    })
+
+    sitemapEntries.push({
+        url: `${BASE_URL}/contact`,
+        lastModified: currentDate,
+        changeFrequency: 'yearly',
+        priority: 0.4,
+    })
+
     // 通用页面（不属于特定游戏）
     sitemapEntries.push({
         url: `${BASE_URL}/privacy`,
