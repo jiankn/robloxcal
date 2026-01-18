@@ -244,19 +244,19 @@ export default function HomePage() {
                     {/* Quick Actions */}
                     <div className="border-t sm:border-t-0 sm:border-l border-zinc-800/50 p-6 sm:w-56 bg-zinc-900/30">
                       <div className="space-y-3">
-                        <Link href={`/${game.slug}`} className="block">
+                        <Link href={`/${game.slug}`} className="block" aria-label={`${game.name} Calculator`}>
                           <Button variant="outline" size="sm" className="w-full border-zinc-700 hover:border-purple-500/50 hover:bg-purple-500/10 justify-start">
                             <Calculator className="h-4 w-4 mr-2 text-purple-400" />
                             Calculator
                           </Button>
                         </Link>
-                        <Link href={`/${game.slug}/codes`} className="block">
+                        <Link href={`/${game.slug}/codes`} className="block" aria-label={`${game.name} Codes`}>
                           <Button variant="outline" size="sm" className="w-full border-zinc-700 hover:border-green-500/50 hover:bg-green-500/10 justify-start">
                             <Gift className="h-4 w-4 mr-2 text-green-400" />
                             Codes
                           </Button>
                         </Link>
-                        <Link href={`/${game.slug}/calibrate`} className="block">
+                        <Link href={`/${game.slug}/calibrate`} className="block" aria-label={`Calibrate ${game.name}`}>
                           <Button variant="outline" size="sm" className="w-full border-zinc-700 hover:border-blue-500/50 hover:bg-blue-500/10 justify-start">
                             <Zap className="h-4 w-4 mr-2 text-blue-400" />
                             Calibrate

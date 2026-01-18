@@ -81,6 +81,7 @@ export function CookieBanner() {
                     size="icon"
                     className="absolute top-3 right-3 h-6 w-6 text-zinc-500 hover:text-white"
                     onClick={() => setIsVisible(false)}
+                    aria-label="Close cookie banner"
                 >
                     <X className="h-4 w-4" />
                 </Button>

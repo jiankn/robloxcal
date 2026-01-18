@@ -25,7 +25,7 @@ export function Footer() {
                         <p className="text-sm text-zinc-400 leading-relaxed">
                             Roblox Calculators & Codes
                         </p>
-                        <p className="text-xs text-zinc-500 mt-2">
+                        <p className="text-xs text-zinc-400 mt-2">
                             Free, accurate, community-driven tools for Roblox players.
                         </p>
                     </div>
@@ -98,7 +98,7 @@ export function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <span className="text-zinc-500">Response time: 24–48h</span>
+                                <span className="text-zinc-400">Response time: 24–48h</span>
                             </li>
                         </ul>
 
@@ -120,10 +120,10 @@ export function Footer() {
 
                 {/* Copyright */}
                 <div className="border-t border-zinc-800/50 py-6 text-center">
-                    <p className="text-xs text-zinc-500 mb-2">
+                    <p className="text-xs text-zinc-400 mb-2">
                         RobloxCal is a fan-made tool and is not affiliated with Roblox Corporation or game developers.
                     </p>
-                    <p className="text-xs text-zinc-600">
+                    <p className="text-xs text-zinc-500">
                         © {new Date().getFullYear()} RobloxCal. Made with ❤️ for the community.
                     </p>
                 </div>
