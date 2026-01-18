@@ -33,12 +33,23 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export const metadata: Metadata = {
-  title: 'RobloxCal — Roblox Game Calculators & Codes',
-  description: 'Free Roblox game calculators and updated codes for top games like AFSE, Bomb Chip, and Craft a Brainrot. Community-calibrated accuracy.',
-  keywords: ['roblox calculator', 'roblox game calculator', 'roblox codes', 'afse calculator', 'bomb chip calculator', 'brainrot calculator'],
+  title: 'Roblox Game Calculator — Free Calculators for AFSE, Bomb Chip & More',
+  description: 'The best free Roblox game calculator for popular games. AFSE Training Optimizer, Bomb Chip Odds Calculator, Craft a Brainrot Profit Calculator, RVB Tycoon tools, and updated game codes. Community-calibrated accuracy.',
+  keywords: [
+    'roblox game calculator',
+    'roblox games calculator',
+    'roblox calculator',
+    'roblox game tools',
+    'afse calculator',
+    'bomb chip calculator',
+    'brainrot calculator',
+    'rvb tycoon calculator',
+    'roblox codes',
+    'roblox game codes'
+  ],
   openGraph: {
-    title: 'RobloxCal — Roblox Game Calculators & Codes',
-    description: 'Free game calculators and codes for popular Roblox games.',
+    title: 'Roblox Game Calculator — Free Tools for Every Game',
+    description: 'Free Roblox game calculators and codes for AFSE, Bomb Chip, Craft a Brainrot, RVB Tycoon and more.',
     url: 'https://robloxcal.com/',
     type: 'website',
   },
@@ -157,16 +168,16 @@ export default function HomePage() {
             <span>Free Tools • Community Calibrated</span>
           </div>
 
-          {/* H1 - SEO Target */}
+          {/* H1 - SEO Target: "Roblox Game Calculator" */}
           <h1 className="rc-title text-4xl sm:text-5xl md:text-6xl">
             <span className="text-white">Roblox Game </span>
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
-              Calculators & Codes
+              Calculator
             </span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl rc-lead max-w-2xl mx-auto">
-            Free, accurate calculators and updated codes for your favorite Roblox games.
+            Free, accurate <strong>Roblox game calculators</strong> and updated codes for your favorite games.
           </p>
 
           {/* 热门游戏轮播 */}

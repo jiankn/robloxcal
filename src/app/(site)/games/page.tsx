@@ -8,9 +8,19 @@ import { getAllActiveGames } from '@/lib/game-config'
 import { ChevronRight, Gamepad2, Gift, Clock, Calculator, LayoutGrid } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'All Games - RobloxCal',
-    description: 'Browse all Roblox game calculators and tools. Find free calculators, codes, tier lists and more for your favorite games.',
-    keywords: ['roblox games', 'roblox calculator', 'roblox codes', 'game tools'],
+    title: 'All Roblox Game Calculators — Browse Free Tools',
+    description: 'Browse all Roblox game calculators in one place. Free calculators, codes, tier lists and tools for AFSE, Bomb Chip, Craft a Brainrot, RVB Tycoon and more games.',
+    keywords: [
+        'roblox game calculator',
+        'roblox games calculator',
+        'roblox calculator list',
+        'all roblox calculators',
+        'roblox game tools',
+        'roblox codes'
+    ],
+    alternates: {
+        canonical: 'https://robloxcal.com/games',
+    }
 }
 
 // 游戏颜色样式
@@ -54,10 +64,10 @@ export default function GamesPage() {
                     <div>
                         <h1 className="text-3xl font-bold text-white flex items-center gap-3">
                             <LayoutGrid className="h-8 w-8 text-purple-400" />
-                            All Games
+                            All Roblox Game Calculators
                         </h1>
                         <p className="text-zinc-400 mt-2">
-                            Browse {allGames.length} games with free calculators, codes, and tools
+                            Browse {allGames.length} free Roblox game calculators with codes and tools
                         </p>
                     </div>
 
