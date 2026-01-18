@@ -48,9 +48,10 @@ export function ScrollProgressIndicator() {
             className="flex flex-col items-end gap-3"
             style={{
                 position: 'fixed',
-                bottom: '24px',
+                bottom: 'calc(24px + var(--cookie-banner-offset, 0px))',
                 right: '24px',
                 zIndex: 9999,
+                transition: 'bottom 0.3s ease-in-out',
             }}
         >
             {/* 回到顶部按钮 - 只在滚动较多时显示 */}

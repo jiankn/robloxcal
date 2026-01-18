@@ -27,6 +27,20 @@ export function CookieBanner() {
         }
     }, [])
 
+    // 控制 CSS 变量，让 ScrollProgressIndicator 知道 Banner 是否显示
+    useEffect(() => {
+        if (isVisible) {
+            // Banner 显示时，设置偏移量（Banner 高度 + 间距）
+            document.documentElement.style.setProperty('--cookie-banner-offset', '220px')
+        } else {
+            // Banner 隐藏时，重置偏移量
+            document.documentElement.style.setProperty('--cookie-banner-offset', '0px')
+        }
+        return () => {
+            document.documentElement.style.setProperty('--cookie-banner-offset', '0px')
+        }
+    }, [isVisible])
+
     const handleAccept = () => {
         localStorage.setItem('afse_cookie_consent', 'true')
         localStorage.setItem('afse_cookie_settings', JSON.stringify({
@@ -114,7 +128,7 @@ export function CookieBanner() {
                             </p>
                         </div>
 
-                    <div className="space-y-4">
+                        <div className="space-y-4">
                             {/* Necessary Cookies */}
                             <div className="space-y-1">
                                 <div className="flex items-center space-x-2">
