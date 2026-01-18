@@ -6,7 +6,7 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase/server'
 import { headers } from 'next/headers'
-import crypto from 'crypto'
+
 import type { CalibrationSubmission } from '@/lib/types'
 import { processCalibrationSubmission, calculateQualityScore } from '@/lib/calibration'
 
@@ -49,7 +49,11 @@ export async function POST(request: Request) {
         const userAgent = headersList.get('user-agent') || 'unknown'
 
         // IP 哈希（不存明文）
-        const ipHash = crypto.createHash('sha256').update(clientIp).digest('hex').substring(0, 16)
+        const encoder = new TextEncoder()
+        const data = encoder.encode(clientIp)
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data)
+        const hashArray = Array.from(new Uint8Array(hashBuffer))
+        const ipHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 16)
 
         // 获取当前活跃版本
         const { data: versionData } = await supabase
