@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronUp, Sparkles } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 /**
  * 滚动进度指示器 - 浮动按钮带环形进度条
@@ -54,23 +52,11 @@ export function ScrollProgressIndicator() {
                 transition: 'bottom 0.3s ease-in-out',
             }}
         >
-            {/* 回到顶部按钮 - 只在滚动较多时显示 */}
-            {scrollProgress > 25 && (
-                <Button
-                    onClick={scrollToTop}
-                    size="icon"
-                    className="h-10 w-10 rounded-full bg-zinc-800/90 hover:bg-zinc-700 border border-zinc-700 shadow-lg backdrop-blur-sm transition-all hover:scale-105"
-                    aria-label="Scroll to top"
-                >
-                    <ChevronUp className="h-5 w-5" />
-                </Button>
-            )}
-
-            {/* 主进度按钮 - 带环形进度条 */}
+            {/* 主进度按钮 - 带环形进度条和百分比 */}
             <button
                 onClick={scrollToTop}
                 className="relative h-14 w-14 rounded-full bg-purple-600 hover:bg-purple-500 shadow-lg shadow-purple-500/25 transition-all hover:scale-105 flex items-center justify-center group"
-                aria-label={`Page scroll progress: ${Math.round(scrollProgress)}%`}
+                aria-label={`Page scroll progress: ${Math.round(scrollProgress)}%. Click to scroll to top.`}
             >
                 {/* 进度环背景 */}
                 <svg className="absolute inset-0 -rotate-90" viewBox="0 0 56 56">
@@ -98,11 +84,8 @@ export function ScrollProgressIndicator() {
                     />
                 </svg>
 
-                {/* 中心图标 */}
-                <Sparkles className="h-5 w-5 text-white relative z-10 group-hover:scale-110 transition-transform" />
-
-                {/* 进度百分比 - hover时显示 */}
-                <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-zinc-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap bg-zinc-900/80 px-2 py-1 rounded">
+                {/* 中心百分比数字 */}
+                <span className="text-white font-bold text-sm relative z-10">
                     {Math.round(scrollProgress)}%
                 </span>
             </button>
