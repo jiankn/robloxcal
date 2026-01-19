@@ -13,24 +13,31 @@ import {
     AlertCircle,
     ExternalLink,
     Twitter,
-    MessageCircle
+    MessageCircle,
+    ChevronRight,
+    Home
 } from 'lucide-react'
 import Link from 'next/link'
 import { HowItWorks } from '@/components/HowItWorks'
 import { getGameCodes, type GameCode } from '@/lib/codes-data'
 import { getGameBySlug } from '@/lib/game-config'
 
+// Ensure dynamic rendering to avoid build-time static generation errors
+export const dynamic = 'force-dynamic'
+export const runtime = 'edge'
+
 interface CodesPageProps {
     params: Promise<{ game: string }>
 }
 
-export default function CodesPage({ params }: CodesPageProps) {
-    const { game } = use(params)
+export default function GamesCodesPage({ params }: CodesPageProps) {
+    // Correctly destructure game from params (renamed from game-slug to game)
+    const { game: slug } = use(params)
     const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
     // 获取游戏配置和兑换码数据
-    const gameConfig = getGameBySlug(game)
-    const codesData = getGameCodes(game)
+    const gameConfig = getGameBySlug(slug)
+    const codesData = getGameCodes(slug)
 
     const copyToClipboard = async (code: string) => {
         try {
@@ -45,17 +52,30 @@ export default function CodesPage({ params }: CodesPageProps) {
     // 如果游戏不存在或没有兑换码数据
     if (!gameConfig || !codesData) {
         return (
-            <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
-                <Card className="bg-zinc-900/50 border-zinc-800 max-w-md">
+            <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center p-4">
+                <nav className="flex items-center gap-2 text-sm text-zinc-400 mb-8 w-full max-w-md">
+                    <Link href="/" className="hover:text-white transition-colors"><Home className="h-4 w-4" /></Link>
+                    <ChevronRight className="h-4 w-4" />
+                    <Link href="/games" className="hover:text-white transition-colors">Games</Link>
+                    {gameConfig && (
+                        <>
+                            <ChevronRight className="h-4 w-4" />
+                            <Link href={`/${slug}`} className="hover:text-white transition-colors">
+                                {gameConfig.display_name}
+                            </Link>
+                        </>
+                    )}
+                </nav>
+                <Card className="bg-zinc-900/50 border-zinc-800 w-full max-w-md">
                     <CardContent className="py-8 text-center">
                         <AlertCircle className="h-12 w-12 text-zinc-500 mx-auto mb-4" />
                         <h1 className="text-xl font-semibold text-white mb-2">Codes Not Available</h1>
                         <p className="text-zinc-400 mb-4">
                             No codes data found for this game yet.
                         </p>
-                        <Link href={`/${game}`}>
+                        <Link href={`/${slug}`}>
                             <Button variant="outline" className="border-zinc-700">
-                                Back to Game
+                                Back to {gameConfig?.display_name || 'Game'}
                             </Button>
                         </Link>
                     </CardContent>
@@ -79,11 +99,23 @@ export default function CodesPage({ params }: CodesPageProps) {
                 className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[120px] translate-x-1/3 -translate-y-1/3 opacity-25"
                 style={{ backgroundColor: accentColor }}
             />
-            <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-yellow-500/20 rounded-full blur-[100px] translate-y-1/2" />
 
             {/* Content */}
             <div className="relative py-8">
                 <div className="max-w-4xl mx-auto px-4">
+                    {/* Breadcrumbs */}
+                    <nav className="flex items-center gap-2 text-sm text-zinc-400 mb-8 flex-wrap">
+                        <Link href="/" className="hover:text-white transition-colors">Home</Link>
+                        <ChevronRight className="h-4 w-4" />
+                        <Link href="/games" className="hover:text-white transition-colors">Games</Link>
+                        <ChevronRight className="h-4 w-4" />
+                        <Link href={`/${slug}`} className="hover:text-white transition-colors">
+                            {gameConfig.display_name}
+                        </Link>
+                        <ChevronRight className="h-4 w-4" />
+                        <span className="text-white">Codes</span>
+                    </nav>
+
                     {/* Header */}
                     <div className="text-center mb-10">
                         <div
@@ -96,99 +128,88 @@ export default function CodesPage({ params }: CodesPageProps) {
                             <Gift className="h-4 w-4" style={{ color: accentColor }} />
                             <span className="text-sm" style={{ color: accentColor }}>Free Rewards</span>
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
                             {codesData.gameName}
                         </h1>
-                        <p className="text-zinc-400 max-w-xl mx-auto">
+                        <p className="text-zinc-400 max-w-xl mx-auto text-lg">
                             {codesData.description}
                         </p>
                     </div>
 
-                    {/* How It Works */}
+                    {/* How It Works - Reused component */}
                     <HowItWorks toolType="codes" proTip="Check back daily for new codes and rewards!" />
 
-                    {/* How to Redeem */}
-                    <Card className="bg-zinc-900/50 border-zinc-800 mb-8">
-                        <CardHeader className="pb-3">
-                            <CardTitle className="text-white text-lg flex items-center gap-2">
-                                <AlertCircle className="h-5 w-5 text-blue-400" />
-                                How to Redeem Codes
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ol className="list-decimal list-inside space-y-2 text-sm text-zinc-400">
-                                {codesData.howToRedeem.map((step, index) => (
-                                    <li key={index} dangerouslySetInnerHTML={{ __html: step }} />
-                                ))}
-                            </ol>
-                        </CardContent>
-                    </Card>
-
                     {/* Active Codes */}
-                    <div className="mb-10">
-                        <div className="flex items-center gap-2 mb-4">
-                            <Zap className="h-5 w-5 text-green-400" />
-                            <h2 className="text-xl font-semibold text-white">
-                                Active Codes ({codesData.activeCodes.length})
-                            </h2>
+                    <div className="mb-12 mt-12">
+                        <div className="flex items-center justify-between mb-6">
+                            <div className="flex items-center gap-2">
+                                <Zap className="h-6 w-6 text-green-400" />
+                                <h2 className="text-2xl font-bold text-white">
+                                    Active Codes
+                                    <span className="ml-2 text-sm font-normal text-zinc-500 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded-md">
+                                        {codesData.activeCodes.length}
+                                    </span>
+                                </h2>
+                            </div>
                         </div>
 
                         {codesData.activeCodes.length === 0 ? (
                             <Card className="bg-zinc-900/50 border-zinc-800">
-                                <CardContent className="py-8 text-center">
-                                    <p className="text-zinc-400">No active codes at the moment. Check back soon!</p>
+                                <CardContent className="py-12 text-center">
+                                    <p className="text-zinc-400 text-lg">No active codes currently available.</p>
+                                    <p className="text-zinc-500 text-sm mt-2">Check back later for updates!</p>
                                 </CardContent>
                             </Card>
                         ) : (
-                            <div className="space-y-3">
+                            <div className="grid gap-4">
                                 {codesData.activeCodes.map((item: GameCode) => (
                                     <Card
                                         key={item.code}
-                                        className={`bg-zinc-900/50 border-zinc-800 hover:border-green-500/30 transition-all ${item.status === 'new' ? 'ring-1 ring-green-500/30' : ''
+                                        className={`bg-zinc-900/40 border-zinc-800 backdrop-blur-sm group hover:border-zinc-700 transition-all ${item.status === 'new' ? 'ring-1 ring-green-500/20 border-green-500/20 shadow-[0_0_20px_-10px_rgba(34,197,94,0.2)]' : ''
                                             }`}
                                     >
-                                        <CardContent className="py-4">
-                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                                                <div className="flex items-center gap-3">
-                                                    <div className="font-mono text-lg font-bold text-white bg-zinc-800 px-3 py-1.5 rounded-lg">
+                                        <CardContent className="py-4 px-5">
+                                            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="font-mono text-xl font-bold text-white bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-lg tracking-wider select-all">
                                                         {item.code}
                                                     </div>
                                                     {item.status === 'new' && (
-                                                        <Badge className="bg-green-500/20 text-green-300 border-green-500/30">
+                                                        <Badge className="bg-green-500/10 text-green-400 border-green-500/20 font-bold px-2.5">
                                                             NEW
                                                         </Badge>
                                                     )}
                                                 </div>
-                                                <div className="flex items-center gap-3">
+                                                <div className="flex items-center justify-between md:justify-end gap-4 w-full md:w-auto">
                                                     <div className="text-sm">
-                                                        <span className="text-zinc-500">Reward: </span>
-                                                        <span className="text-yellow-400">{item.reward}</span>
+                                                        <span className="text-zinc-500 block text-xs mb-0.5 uppercase tracking-wider font-medium">Reward</span>
+                                                        <span className="text-yellow-400 font-medium">{item.reward}</span>
                                                     </div>
                                                     <Button
-                                                        size="sm"
+                                                        size="default"
                                                         variant={copiedCode === item.code ? 'default' : 'outline'}
                                                         onClick={() => copyToClipboard(item.code)}
                                                         className={copiedCode === item.code
-                                                            ? 'bg-green-600 hover:bg-green-500'
-                                                            : 'border-zinc-700 hover:border-green-500/50'
+                                                            ? 'bg-green-600 hover:bg-green-500 min-w-[100px]'
+                                                            : 'border-zinc-700 hover:border-zinc-600 hover:text-white bg-zinc-900/50 min-w-[100px]'
                                                         }
                                                     >
                                                         {copiedCode === item.code ? (
                                                             <>
-                                                                <Check className="h-4 w-4 mr-1" />
-                                                                Copied!
+                                                                <Check className="h-4 w-4 mr-2" />
+                                                                Copied
                                                             </>
                                                         ) : (
                                                             <>
-                                                                <Copy className="h-4 w-4 mr-1" />
+                                                                <Copy className="h-4 w-4 mr-2" />
                                                                 Copy
                                                             </>
                                                         )}
                                                     </Button>
                                                 </div>
                                             </div>
-                                            <div className="mt-2 text-xs text-zinc-600">
-                                                Added: {item.addedDate}
+                                            <div className="mt-2 flex items-center gap-2 text-xs text-zinc-600">
+                                                <span>Verified {item.addedDate}</span>
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -197,103 +218,101 @@ export default function CodesPage({ params }: CodesPageProps) {
                         )}
                     </div>
 
-                    {/* Expired Codes */}
-                    {codesData.expiredCodes.length > 0 && (
-                        <div className="mb-10">
-                            <div className="flex items-center gap-2 mb-4">
-                                <Clock className="h-5 w-5 text-zinc-500" />
-                                <h2 className="text-xl font-semibold text-zinc-400">
-                                    Expired Codes ({codesData.expiredCodes.length})
-                                </h2>
-                            </div>
-
-                            <div className="space-y-2 opacity-60">
-                                {codesData.expiredCodes.map((item: GameCode) => (
-                                    <Card key={item.code} className="bg-zinc-900/30 border-zinc-800">
-                                        <CardContent className="py-3">
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-3">
-                                                    <span className="font-mono text-zinc-500 line-through">
-                                                        {item.code}
-                                                    </span>
-                                                    <Badge variant="outline" className="text-zinc-600 border-zinc-700 text-xs">
-                                                        Expired
-                                                    </Badge>
-                                                </div>
-                                                <span className="text-xs text-zinc-600">{item.reward}</span>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
+                    <div className="grid md:grid-cols-3 gap-8 mb-12">
+                        <div className="md:col-span-2">
+                            {/* How to Redeem */}
+                            <Card className="bg-zinc-900/50 border-zinc-800 mb-8 h-full">
+                                <CardHeader className="pb-3 border-b border-zinc-800/50">
+                                    <CardTitle className="text-white text-lg flex items-center gap-2">
+                                        <AlertCircle className="h-5 w-5 text-blue-400" />
+                                        How to Redeem Codes
+                                    </CardTitle>
+                                </CardHeader>
+                                <CardContent className="pt-6">
+                                    <ol className="list-decimal list-inside space-y-4 text-zinc-300">
+                                        {codesData.howToRedeem.map((step, index) => (
+                                            <li key={index} className="leading-relaxed pl-2 marker:text-zinc-500 [&>strong]:text-white [&>strong]:font-semibold" dangerouslySetInnerHTML={{ __html: step }} />
+                                        ))}
+                                    </ol>
+                                </CardContent>
+                            </Card>
                         </div>
-                    )}
+                        <div className="md:col-span-1 space-y-6">
+                            {/* Social Links */}
+                            <Card className="bg-gradient-to-br from-blue-950/30 to-zinc-900/50 border-blue-500/10">
+                                <CardContent className="py-6">
+                                    <div className="text-center">
+                                        <h3 className="text-lg font-bold text-white mb-2">
+                                            Never Miss a Code
+                                        </h3>
+                                        <p className="text-xs text-zinc-400 mb-4 px-2">
+                                            Follow official channels for instant alerts
+                                        </p>
+                                        <div className="flex flex-col gap-2">
+                                            {codesData.socialLinks.twitter && (
+                                                <Button variant="outline" className="w-full justify-start border-zinc-800 bg-black/20 hover:bg-blue-500/10 hover:text-blue-400 hover:border-blue-500/30 transition-all font-normal text-zinc-300" asChild>
+                                                    <a href={codesData.socialLinks.twitter} target="_blank" rel="noopener noreferrer">
+                                                        <Twitter className="h-4 w-4 mr-3" />
+                                                        Twitter / X
+                                                    </a>
+                                                </Button>
+                                            )}
+                                            {codesData.socialLinks.discord && (
+                                                <Button variant="outline" className="w-full justify-start border-zinc-800 bg-black/20 hover:bg-purple-500/10 hover:text-purple-400 hover:border-purple-500/30 transition-all font-normal text-zinc-300" asChild>
+                                                    <a href={codesData.socialLinks.discord} target="_blank" rel="noopener noreferrer">
+                                                        <MessageCircle className="h-4 w-4 mr-3" />
+                                                        Discord Server
+                                                    </a>
+                                                </Button>
+                                            )}
+                                            {codesData.socialLinks.robloxGame && (
+                                                <Button variant="default" className="w-full mt-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 border-0" asChild>
+                                                    <a href={codesData.socialLinks.robloxGame} target="_blank" rel="noopener noreferrer">
+                                                        <ExternalLink className="h-4 w-4 mr-2" />
+                                                        Play Now
+                                                    </a>
+                                                </Button>
+                                            )}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
 
-                    {/* Social Links */}
-                    <Card className="bg-gradient-to-br from-blue-900/20 to-zinc-900/50 border-blue-500/20">
-                        <CardContent className="py-6">
-                            <div className="text-center">
-                                <h3 className="text-lg font-semibold text-white mb-2">
-                                    Get New Codes First!
-                                </h3>
-                                <p className="text-sm text-zinc-400 mb-4">
-                                    Follow the developers for exclusive codes and updates
-                                </p>
-                                <div className="flex flex-wrap justify-center gap-3">
-                                    {codesData.socialLinks.twitter && (
-                                        <Button variant="outline" className="border-zinc-700 hover:border-blue-500/50" asChild>
-                                            <a href={codesData.socialLinks.twitter} target="_blank" rel="noopener noreferrer">
-                                                <Twitter className="h-4 w-4 mr-2" />
-                                                Twitter/X
-                                            </a>
-                                        </Button>
-                                    )}
-                                    {codesData.socialLinks.discord && (
-                                        <Button variant="outline" className="border-zinc-700 hover:border-purple-500/50" asChild>
-                                            <a href={codesData.socialLinks.discord} target="_blank" rel="noopener noreferrer">
-                                                <MessageCircle className="h-4 w-4 mr-2" />
-                                                Discord
-                                            </a>
-                                        </Button>
-                                    )}
-                                    {codesData.socialLinks.robloxGame && (
-                                        <Button variant="outline" className="border-zinc-700 hover:border-red-500/50" asChild>
-                                            <a href={codesData.socialLinks.robloxGame} target="_blank" rel="noopener noreferrer">
-                                                <ExternalLink className="h-4 w-4 mr-2" />
-                                                Play Now
-                                            </a>
-                                        </Button>
-                                    )}
+                            {/* Expired Codes - Collapsible style feeling */}
+                            {codesData.expiredCodes.length > 0 && (
+                                <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 overflow-hidden">
+                                    <div className="bg-zinc-900/50 px-4 py-3 border-b border-zinc-800/50 flex items-center gap-2">
+                                        <Clock className="h-4 w-4 text-zinc-500" />
+                                        <h3 className="font-semibold text-zinc-400 text-sm">Expired Codes</h3>
+                                    </div>
+                                    <div className="p-2 space-y-1 max-h-[300px] overflow-y-auto">
+                                        {codesData.expiredCodes.map((item: GameCode) => (
+                                            <div key={item.code} className="flex justify-between items-center p-2 rounded hover:bg-white/5 transition-colors">
+                                                <span className="font-mono text-xs text-zinc-500 line-through decoration-zinc-700">
+                                                    {item.code}
+                                                </span>
+                                                <span className="text-[10px] text-zinc-600">{item.reward}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-
-                    {/* Tips */}
-                    <Card className="bg-zinc-900/30 border-zinc-800 mt-8">
-                        <CardHeader>
-                            <CardTitle className="text-white text-lg">💡 Code Tips</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <ul className="space-y-2 text-sm text-zinc-400">
-                                <li>• Codes are <strong className="text-white">case sensitive</strong> - type exactly as shown</li>
-                                <li>• New codes usually drop during <strong className="text-white">updates and holidays</strong></li>
-                                <li>• Some codes are <strong className="text-white">time-limited</strong> - redeem quickly!</li>
-                                <li>• Bookmark this page - we update codes daily</li>
-                            </ul>
-                        </CardContent>
-                    </Card>
+                            )}
+                        </div>
+                    </div>
 
                     {/* Related Tools */}
                     {codesData.relatedTools.length > 0 && (
-                        <div className="mt-8 text-center">
-                            <p className="text-sm text-zinc-500 mb-3">Maximize your code rewards with our tools:</p>
-                            <div className="flex flex-wrap justify-center gap-3">
+                        <div className="mb-12">
+                            <h3 className="text-xl font-bold text-white mb-6 text-center">More Tools for {gameConfig.display_name}</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                                 {codesData.relatedTools.map((tool) => (
-                                    <Link key={tool.href} href={`/${game}${tool.href.replace(`/${game}`, '')}`}>
-                                        <Button variant="outline" size="sm" className="border-zinc-700">
-                                            {tool.label}
-                                        </Button>
+                                    <Link key={tool.href} href={tool.href.replace('/games', '')}>
+                                        <Card className="bg-zinc-900/30 border-zinc-800 hover:border-zinc-700 hover:bg-zinc-800/50 transition-all cursor-pointer h-full group">
+                                            <CardContent className="p-4 flex items-center justify-between">
+                                                <span className="font-medium text-zinc-300 group-hover:text-white transition-colors">{tool.label}</span>
+                                                <ChevronRight className="h-4 w-4 text-zinc-600 group-hover:text-white transition-colors" />
+                                            </CardContent>
+                                        </Card>
                                     </Link>
                                 ))}
                             </div>

@@ -521,8 +521,10 @@ function GameNavbar({ game }: { game: GameConfig }) {
                 {/* 第二行：工具导航 - 居中分布，美化按钮 */}
                 <div className="hidden md:flex relative h-12 pb-2 items-center justify-center gap-1 border-t border-zinc-800/30 overflow-visible">
                     {navItems.map((item, index) => {
-                        const fullPath = `/${game.slug}${item.href}`
-                        const isActive = pathname === fullPath
+                        // All games use flattened structure /derived from root
+                        const prefix = `/${game.slug}`
+                        const fullPath = `${prefix}${item.href}`
+                        const isActive = pathname === fullPath || pathname?.startsWith(fullPath + '/')
                         const Icon = item.icon
                         return (
                             <Link key={item.href} href={fullPath} aria-current={isActive ? 'page' : undefined}>
@@ -582,8 +584,10 @@ function GameNavbar({ game }: { game: GameConfig }) {
                                 {/* 工具导航 */}
                                 <div className="flex-1 overflow-auto py-4">
                                     {navItems.map((item) => {
-                                        const fullPath = `/${game.slug}${item.href}`
-                                        const isActive = pathname === fullPath
+                                        // All games use flattened structure available from root
+                                        const prefix = `/${game.slug}`
+                                        const fullPath = `${prefix}${item.href}`
+                                        const isActive = pathname === fullPath || pathname?.startsWith(fullPath + '/')
                                         const Icon = item.icon
 
                                         return (
@@ -639,13 +643,23 @@ export function Navbar() {
         // 解析路径获取游戏 slug
         const segments = pathname.split('/').filter(Boolean)
         if (segments.length > 0) {
-            const gameSlug = segments[0]
+            let gameSlug: string | null = null
+
+            // 支持两种 URL 格式兼容 check for now, but prioritize root
+            // 2. /games/[game-slug]/... (Legacy check)
+            if (segments[0] === 'games' && segments.length > 1) {
+                gameSlug = segments[1]
+            } else {
+                gameSlug = segments[0]
+            }
+
             const gameConfig = getGameBySlug(gameSlug)
             setGame(gameConfig)
         } else {
             setGame(null)
         }
     }, [pathname])
+
 
     // Don't render until pathname is available to prevent router mounting issues
     if (!pathname) {

@@ -5,27 +5,30 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { HelpCircle } from "lucide-react"
+import { getGameFaqs, type FaqItem } from "@/data/game-faqs"
 
-const faqs = [
-    {
-        question: "What is the best training area in Anime Fighting Simulator Endless?",
-        answer: "The best training area depends on your current stats. Our AFSE Calculator analyzes your strength, chakra, speed, and durability levels to recommend the optimal spot that gives you the highest gain per minute."
-    },
-    {
-        question: "How do I get stats fast in AFSE?",
-        answer: "To get stats fast, use the highest requirement training area you can unlock, equip your best Class, and use boosters (VIP, 2x Stats, Weekend Boost). Use our Optimizer to calculate exactly how long it takes to reach your next milestone."
-    },
-    {
-        question: "What are the latest AFSE codes?",
-        answer: "We update our codes daily. Visit our Codes page to find the latest redeem codes for free Yen, Chikara Shards, and Stat Boosts."
-    },
-    {
-        question: "Is the No Limit Gamepass worth it?",
-        answer: "No Limit removes the 131K stat cap for multi-training, allowing exponential growth. If you are a serious grinder aiming for leaderboards, it is the most essential gamepass."
-    }
-]
+interface FaqSectionProps {
+    gameSlug?: string  // Optional: if not provided, uses AFSE as default
+    faqs?: FaqItem[]   // Optional: override with custom FAQs
+    title?: string     // Optional: custom title
+    subtitle?: string  // Optional: custom subtitle
+}
 
-export function FaqSection() {
+export function FaqSection({
+    gameSlug = 'afse',
+    faqs: customFaqs,
+    title = "Frequently Asked Questions",
+    subtitle
+}: FaqSectionProps) {
+    // Use custom FAQs if provided, otherwise get from game config
+    const faqs = customFaqs || getGameFaqs(gameSlug)
+
+    // Don't render if no FAQs
+    if (!faqs || faqs.length === 0) return null
+
+    // Generate dynamic subtitle based on game
+    const dynamicSubtitle = subtitle || `Everything you need to know`
+
     // Generate JSON-LD Schema
     const jsonLd = {
         "@context": "https://schema.org",
@@ -52,8 +55,8 @@ export function FaqSection() {
                     <HelpCircle className="h-6 w-6 text-indigo-400" />
                 </div>
                 <div>
-                    <h2 className="text-2xl font-bold text-white">Frequently Asked Questions</h2>
-                    <p className="text-zinc-400">Everything you need to know about AFSE training</p>
+                    <h2 className="text-2xl font-bold text-white">{title}</h2>
+                    <p className="text-zinc-400">{dynamicSubtitle}</p>
                 </div>
             </div>
 

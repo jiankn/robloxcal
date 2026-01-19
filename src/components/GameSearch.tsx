@@ -212,7 +212,7 @@ export function GameSearch({ placeholder = 'Search games...', compact = false, f
                     {/* 底部 */}
                     <div className="border-t border-zinc-800/50 p-2 bg-zinc-900/50">
                         <Link
-                            href="/#games"
+                            href="/games"
                             onClick={() => setIsOpen(false)}
                             className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 transition-all"
                         >

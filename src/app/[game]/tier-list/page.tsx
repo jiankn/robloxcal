@@ -1,9 +1,12 @@
 'use client'
 
+import { useGame } from '@/lib/game-context'
+import { GenericTierListPage } from '@/components/GenericTierListPage'
+
+// RVB Tycoon 专用导入
 import { useState, useMemo } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
     Trophy,
     Shield,
@@ -28,7 +31,11 @@ const TIER_CONFIG = {
     D: { color: 'blue', bg: 'bg-blue-500/20', border: 'border-blue-500/50', text: 'text-blue-400' }
 }
 
-export default function UnitTierListPage() {
+// 支持新游戏的游戏键列表
+const NEW_GAME_KEYS = ['etfb', 'sab', 'fishit', 'fisch', 'bss', 'gag']
+
+// RVB Tycoon 专用 Tier List
+function RVBTierListPage() {
     const [selectedTier, setSelectedTier] = useState<UnitData['tier'] | 'all'>('all')
 
     // Calculate DPS for all units
@@ -294,4 +301,22 @@ export default function UnitTierListPage() {
             </div>
         </div>
     )
+}
+
+// 主页面组件 - 根据游戏类型选择渲染
+export default function TierListPage() {
+    const game = useGame()
+
+    // 新游戏使用通用 Tier List
+    if (NEW_GAME_KEYS.includes(game.game_key)) {
+        return <GenericTierListPage />
+    }
+
+    // RVB Tycoon 使用专用页面
+    if (game.game_key === 'rvb_tycoon') {
+        return <RVBTierListPage />
+    }
+
+    // 其他游戏使用通用页面
+    return <GenericTierListPage />
 }

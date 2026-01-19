@@ -29,6 +29,67 @@ import { AdLayout } from '@/components/AdLayout'
 import { FaqSection } from '@/components/FaqSection'
 import { HowItWorks } from '@/components/HowItWorks'
 import { useGame } from '@/lib/game-context'
+import { type GameConfig } from '@/lib/game-config'
+
+// 6 个新游戏的工具配置（Hub 门户显示的卡片）
+const NEW_GAME_TOOLS: Record<string, Array<{
+    slug: string
+    title: string
+    description: string
+    icon: React.ComponentType<{ className?: string }>
+    color: string
+    badge?: string
+}>> = {
+    'escape-tsunami-for-brainrots': [
+        { slug: 'etfb-rebirth-calculator', title: 'Rebirth Calculator', description: 'Calculate optimal rebirth timing for maximum multiplier gains', icon: Zap, color: 'cyan', badge: 'Main Tool' },
+        { slug: 'etfb-upgrade-roi', title: 'Upgrade ROI Calculator', description: 'Find the best upgrades for your investment', icon: TrendingUp, color: 'blue' },
+        { slug: 'etfb-speed-planner', title: 'Speed Planner', description: 'Plan your speed upgrades for maximum efficiency', icon: Clock, color: 'purple' },
+        { slug: 'wiki', title: 'Wiki', description: 'Game mechanics, items, and strategies', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best upgrades and items ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free rewards and in-game items', icon: Gift, color: 'green' }
+    ],
+    'steal-a-brainrot': [
+        { slug: 'sab-income-calculator', title: 'Income Calculator', description: 'Calculate your total income based on brainrot collection', icon: TrendingUp, color: 'orange', badge: 'Main Tool' },
+        { slug: 'sab-roi-calculator', title: 'ROI Calculator', description: 'Find the best return on your investments', icon: BarChart3, color: 'blue' },
+        { slug: 'sab-drop-rate-calculator', title: 'Drop Rate Calculator', description: 'Calculate drop chances for rare items', icon: Target, color: 'purple' },
+        { slug: 'wiki', title: 'Wiki', description: 'Game mechanics and brainrot guides', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best brainrots and items ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free rewards and boosts', icon: Gift, color: 'green' }
+    ],
+    'fish-it': [
+        { slug: 'fishit-luck-drop-rate', title: 'Luck & Drop Rate', description: 'See how luck affects your chances of catching rare fish', icon: Target, color: 'teal', badge: 'Main Tool' },
+        { slug: 'fishit-rare-fish-eta', title: 'Rare Fish ETA', description: 'Estimate time to catch specific rare fish', icon: Trophy, color: 'yellow' },
+        { slug: 'fishit-profit-per-hour', title: 'Profit Calculator', description: 'Calculate your earnings per hour', icon: TrendingUp, color: 'blue' },
+        { slug: 'wiki', title: 'Wiki', description: 'Fish types, rods, and locations', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best rods and fish ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free bait and rewards', icon: Gift, color: 'green' }
+    ],
+    'fisch': [
+        { slug: 'fisch-fish-value-calculator', title: 'Fish Value Calculator', description: 'Estimate selling price based on weight and mutations', icon: TrendingUp, color: 'blue', badge: 'Main Tool' },
+        { slug: 'fisch-target-fish-solver', title: 'Target Fish Solver', description: 'Find the best fish to catch for your goals', icon: Target, color: 'purple' },
+        { slug: 'fisch-profit-optimizer', title: 'Profit Optimizer', description: 'Maximize your fishing profits', icon: BarChart3, color: 'emerald' },
+        { slug: 'wiki', title: 'Wiki', description: 'Fish species, locations, and gear', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best fish and equipment ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free coins and items', icon: Gift, color: 'green' }
+    ],
+    'bee-swarm-simulator': [
+        { slug: 'bss-honey-calculator', title: 'Honey Calculator', description: 'Estimate honey production from pollen collection rates', icon: Sparkles, color: 'yellow', badge: 'Main Tool' },
+        { slug: 'bss-pollen-to-honey', title: 'Pollen Converter', description: 'Convert pollen to honey with multipliers', icon: Clock, color: 'orange' },
+        { slug: 'bss-honey-per-pollen', title: 'Honey per Pollen', description: 'Calculate your honey efficiency rate', icon: TrendingUp, color: 'blue' },
+        { slug: 'wiki', title: 'Wiki', description: 'Bees, fields, and game mechanics', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best bees and items ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free honey and boosts', icon: Gift, color: 'green' }
+    ],
+    'grow-a-garden': [
+        { slug: 'gag-crop-value-calculator', title: 'Crop Value Calculator', description: 'Calculate selling price of your harvested crops', icon: TrendingUp, color: 'emerald', badge: 'Main Tool' },
+        { slug: 'gag-pet-weight-calculator', title: 'Pet Weight Calculator', description: 'Calculate your pet weight and bonuses', icon: Target, color: 'purple' },
+        { slug: 'gag-pet-xp-calculator', title: 'Pet XP Calculator', description: 'Plan your pet leveling strategy', icon: Zap, color: 'blue' },
+        { slug: 'wiki', title: 'Wiki', description: 'Crops, pets, and gardening tips', icon: BookOpen, color: 'indigo' },
+        { slug: 'tier-list', title: 'Tier List', description: 'Best crops and pets ranked', icon: Trophy, color: 'yellow' },
+        { slug: 'codes', title: 'Active Codes', description: 'Free seeds and coins', icon: Gift, color: 'green' }
+    ]
+}
+
 
 // 主要工具卡片数据
 const primaryTools = [
@@ -201,7 +262,115 @@ const COLOR_STYLES: Record<
         hoverBorder: 'hover:border-violet-500/40',
         gradientFrom: 'from-violet-900/15',
         gradientTo: 'to-zinc-900/50'
+    },
+    cyan: {
+        iconBg: 'bg-cyan-500/10 group-hover:bg-cyan-500/20',
+        iconText: 'text-cyan-400',
+        badge: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+        border: 'border-cyan-500/20',
+        hoverBorder: 'hover:border-cyan-500/40',
+        gradientFrom: 'from-cyan-900/15',
+        gradientTo: 'to-zinc-900/50'
+    },
+    orange: {
+        iconBg: 'bg-orange-500/10 group-hover:bg-orange-500/20',
+        iconText: 'text-orange-400',
+        badge: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
+        border: 'border-orange-500/20',
+        hoverBorder: 'hover:border-orange-500/40',
+        gradientFrom: 'from-orange-900/15',
+        gradientTo: 'to-zinc-900/50'
+    },
+    teal: {
+        iconBg: 'bg-teal-500/10 group-hover:bg-teal-500/20',
+        iconText: 'text-teal-400',
+        badge: 'bg-teal-500/20 text-teal-300 border-teal-500/30',
+        border: 'border-teal-500/20',
+        hoverBorder: 'hover:border-teal-500/40',
+        gradientFrom: 'from-teal-900/15',
+        gradientTo: 'to-zinc-900/50'
     }
+}
+
+// GameHubPortal 组件 - 游戏门户页面
+function GameHubPortal({ game }: { game: GameConfig }) {
+    const tools = NEW_GAME_TOOLS[game.slug] || []
+    const accentColor = game.theme.accent
+
+    return (
+        <>
+            <header className="relative overflow-hidden">
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] rc-grid-mask-top" />
+                <div
+                    className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full blur-[120px] -translate-y-1/2 opacity-30"
+                    style={{ backgroundColor: accentColor }}
+                />
+
+                <div className="relative rc-container py-12 md:py-16">
+                    <div className="text-center max-w-3xl mx-auto">
+                        <div
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 border"
+                            style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}30` }}
+                        >
+                            <Sparkles className="h-4 w-4" style={{ color: accentColor }} />
+                            <span className="text-sm font-medium" style={{ color: accentColor }}>Free Calculator</span>
+                        </div>
+
+                        <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                            {game.full_name}
+                        </h1>
+                        <p className="text-lg text-zinc-400 max-w-xl mx-auto">
+                            {game.seo.description}
+                        </p>
+                    </div>
+                </div>
+            </header>
+
+            <AdLayout>
+                <section className="rc-container py-8">
+                    <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <Zap className="h-5 w-5" style={{ color: accentColor }} />
+                        Available Tools
+                    </h2>
+
+                    <div className="grid gap-4 md:grid-cols-2">
+                        {tools.map((tool) => {
+                            const Icon = tool.icon
+                            const styles = COLOR_STYLES[tool.color as keyof typeof COLOR_STYLES] || COLOR_STYLES.purple
+
+                            return (
+                                <Link key={tool.slug} href={`/${game.slug}/${tool.slug}`} className="group">
+                                    <Card className={`glass-card border-zinc-800/50 hover-lift ${styles.hoverBorder} transition-all h-full`}>
+                                        <CardContent className="p-6">
+                                            <div className="flex items-start gap-4">
+                                                <div className={`p-3 rounded-xl ${styles.iconBg} transition-colors`}>
+                                                    <Icon className={`h-6 w-6 ${styles.iconText}`} />
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <h3 className="font-bold text-white group-hover:text-purple-200 transition-colors">
+                                                            {tool.title}
+                                                        </h3>
+                                                        {tool.badge && (
+                                                            <Badge className={styles.badge}>{tool.badge}</Badge>
+                                                        )}
+                                                    </div>
+                                                    <p className="text-sm text-zinc-400">{tool.description}</p>
+                                                </div>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </Link>
+                            )
+                        })}
+                    </div>
+                </section>
+
+                <HowItWorks toolType={game.game_key} />
+                <FaqSection />
+            </AdLayout>
+        </>
+    )
 }
 
 export default function GamePage() {
@@ -219,6 +388,21 @@ export default function GamePage() {
     if (game.game_key === 'rvb_tycoon') {
         return <RVBTycoonCalculator gameSlug={game.slug} displayName={game.display_name} />
     }
+
+    // Top 6 Expansion Games - 渲染 Hub 门户（工具卡片入口）
+    const NEW_GAME_SLUGS = [
+        'escape-tsunami-for-brainrots',
+        'steal-a-brainrot',
+        'fish-it',
+        'fisch',
+        'bee-swarm-simulator',
+        'grow-a-garden'
+    ]
+
+    if (NEW_GAME_SLUGS.includes(game.slug)) {
+        return <GameHubPortal game={game} />
+    }
+
 
     // AFSE 默认页面
     return (

@@ -155,6 +155,33 @@ export const GAME_CODES: Record<string, GameCodesData> = {
             { href: '/rvb-tycoon/rebirth', label: 'Rebirth Calculator' },
             { href: '/rvb-tycoon/weapons', label: 'Weapon DPS' }
         ]
+    },
+    'escape-tsunami-for-brainrots': {
+        gameName: 'Escape Tsunami Codes',
+        gameSlug: 'escape-tsunami-for-brainrots',
+        description: 'All working codes for Escape Tsunami For Brainrots. Free coins, trails, and speed boosts! Updated January 2026.',
+        howToRedeem: [
+            'Launch <strong>Escape Tsunami</strong> on Roblox',
+            'Click the <strong>Shop</strong> button on the left',
+            'Scroll down to the bottom to find the <strong>Codes</strong> input',
+            'Enter code and click <strong>Redeem</strong>!'
+        ],
+        activeCodes: [
+            { code: 'TSUNAMI2026', reward: '500 Coins + Speed Boost', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'BRAINROT', reward: 'Exclusive Trail', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'ESCAPE', reward: '250 Coins', status: 'active', addedDate: 'Dec 2025' },
+            { code: 'FLOOD', reward: '100 Coins', status: 'active', addedDate: 'Dec 2025' },
+        ],
+        expiredCodes: [
+            { code: 'RELEASE', reward: '50 Coins', status: 'expired', addedDate: 'Nov 2025' },
+        ],
+        socialLinks: {
+            robloxGame: 'https://www.roblox.com/games/1234567890/Escape-Tsunami'
+        },
+        relatedTools: [
+            { href: '/escape-tsunami-for-brainrots/etfb-rebirth-calculator', label: 'Rebirth Calculator' },
+            { href: '/escape-tsunami-for-brainrots/etfb-upgrade-roi', label: 'Upgrade ROI' }
+        ]
     }
 }
 

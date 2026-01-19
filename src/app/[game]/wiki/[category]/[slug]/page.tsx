@@ -20,14 +20,28 @@ const GAME_KEY_MAP: Record<string, string> = {
     'afse': 'afse',
     'bomb-chip': 'bomb_chip',
     'craft-a-brainrot': 'brainrot',
-    'rvb-tycoon': 'rvb_tycoon'
+    'rvb-tycoon': 'rvb_tycoon',
+    // Top 6 Expansion Games
+    'escape-tsunami-for-brainrots': 'etfb',
+    'steal-a-brainrot': 'sab',
+    'fish-it': 'fishit',
+    'fisch': 'fisch',
+    'bee-swarm-simulator': 'bss',
+    'grow-a-garden': 'gag'
 }
 
 const GAME_NAMES: Record<string, string> = {
     'afse': 'AFSE',
     'bomb-chip': 'Bomb Chip',
     'craft-a-brainrot': 'Craft a Brainrot',
-    'rvb-tycoon': 'Red VS Blue Tycoon'
+    'rvb-tycoon': 'Red VS Blue Tycoon',
+    // Top 6 Expansion Games
+    'escape-tsunami-for-brainrots': 'Escape Tsunami For Brainrots',
+    'steal-a-brainrot': 'Steal a Brainrot',
+    'fish-it': 'Fish It!',
+    'fisch': 'Fisch',
+    'bee-swarm-simulator': 'Bee Swarm Simulator',
+    'grow-a-garden': 'Grow a Garden'
 }
 
 // 游戏主题色 - 用于渐变背景
@@ -47,8 +61,34 @@ const GAME_THEMES: Record<string, { accent: string; gradient: string }> = {
     'rvb-tycoon': {
         accent: '#ef4444',
         gradient: 'from-red-950/30 via-transparent to-transparent'
+    },
+    // Top 6 Expansion Games
+    'escape-tsunami-for-brainrots': {
+        accent: '#06b6d4',
+        gradient: 'from-cyan-950/30 via-transparent to-transparent'
+    },
+    'steal-a-brainrot': {
+        accent: '#f97316',
+        gradient: 'from-orange-950/30 via-transparent to-transparent'
+    },
+    'fish-it': {
+        accent: '#3b82f6',
+        gradient: 'from-blue-950/30 via-transparent to-transparent'
+    },
+    'fisch': {
+        accent: '#0ea5e9',
+        gradient: 'from-sky-950/30 via-transparent to-transparent'
+    },
+    'bee-swarm-simulator': {
+        accent: '#eab308',
+        gradient: 'from-yellow-950/30 via-transparent to-transparent'
+    },
+    'grow-a-garden': {
+        accent: '#22c55e',
+        gradient: 'from-green-950/30 via-transparent to-transparent'
     }
 }
+
 
 // 生成 SEO 元数据
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

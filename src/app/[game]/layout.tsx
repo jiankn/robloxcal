@@ -68,7 +68,15 @@ export default async function GameLayout({ children, params }: GameLayoutProps) 
     const themeGradients: Record<string, string> = {
         'afse': 'from-purple-900/60 via-purple-950/30',
         'bomb-chip': 'from-red-900/60 via-red-950/30',
-        'craft-a-brainrot': 'from-green-900/60 via-green-950/30'
+        'craft-a-brainrot': 'from-green-900/60 via-green-950/30',
+        'rvb-tycoon': 'from-purple-900/60 via-purple-950/30',
+        // Top 6 Expansion Games
+        'escape-tsunami-for-brainrots': 'from-cyan-900/60 via-cyan-950/30',
+        'steal-a-brainrot': 'from-orange-900/60 via-orange-950/30',
+        'fish-it': 'from-teal-900/60 via-teal-950/30',
+        'fisch': 'from-blue-900/60 via-blue-950/30',
+        'bee-swarm-simulator': 'from-yellow-900/60 via-yellow-950/30',
+        'grow-a-garden': 'from-green-900/60 via-green-950/30'
     }
     const gradient = themeGradients[slug] || themeGradients['afse']
 

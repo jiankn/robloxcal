@@ -1,0 +1,274 @@
+{
+    "games": [
+        {
+            "slug": "escape-tsunami-for-brainrots",
+            "name": "Escape Tsunami For Brainrots",
+            "hub": {
+                "primary": "Escape Tsunami For Brainrots calculator",
+                "secondary": [
+                    "ETFB calculator",
+                    "Escape Tsunami For Brainrots codes",
+                    "Escape Tsunami For Brainrots script",
+                    "ETFB wiki"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "etfb-rebirth-calculator",
+                    "name": "Rebirth Calculator",
+                    "primary": "Escape Tsunami For Brainrots rebirth calculator",
+                    "secondary": [
+                        "ETFB rebirth cost",
+                        "Escape Tsunami For Brainrots multipliers",
+                        "best time to rebirth ETFB"
+                    ]
+                },
+                {
+                    "slug": "etfb-upgrade-roi",
+                    "name": "Upgrade ROI Calculator",
+                    "primary": "Escape Tsunami For Brainrots upgrade calculator",
+                    "secondary": [
+                        "ETFB best upgrades",
+                        "Escape Tsunami For Brainrots ROI",
+                        "ETFB money farming guide"
+                    ]
+                },
+                {
+                    "slug": "etfb-speed-planner",
+                    "name": "Speed Planner",
+                    "primary": "Escape Tsunami For Brainrots speed calculator",
+                    "secondary": [
+                        "how to get faster in ETFB",
+                        "ETFB speed cap",
+                        "Escape Tsunami For Brainrots speed build"
+                    ]
+                }
+            ]
+        },
+        {
+            "slug": "steal-a-brainrot",
+            "name": "Steal a Brainrot",
+            "hub": {
+                "primary": "Steal a Brainrot calculator",
+                "secondary": [
+                    "SAB calculator",
+                    "Steal a Brainrot codes",
+                    "Steal a Brainrot values",
+                    "SAB gui"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "sab-income-calculator",
+                    "name": "Income Calculator",
+                    "primary": "Steal a Brainrot income calculator",
+                    "secondary": [
+                        "SAB money farm",
+                        "how to get rich in Steal a Brainrot",
+                        "Steal a Brainrot earnings per hour"
+                    ]
+                },
+                {
+                    "slug": "sab-roi-calculator",
+                    "name": "ROI Calculator",
+                    "primary": "Steal a Brainrot ROI calculator",
+                    "secondary": [
+                        "SAB best investment",
+                        "Steal a Brainrot upgrade cost",
+                        "Steal a Brainrot profit guide"
+                    ]
+                },
+                {
+                    "slug": "sab-drop-rate-calculator",
+                    "name": "Drop Rate Calculator",
+                    "primary": "Steal a Brainrot drop rate calculator",
+                    "secondary": [
+                        "SAB luck calculator",
+                        "Steal a Brainrot rng chances",
+                        "how to get rare items in Steal a Brainrot"
+                    ]
+                }
+            ]
+        },
+        {
+            "slug": "fish-it",
+            "name": "Fish It!",
+            "hub": {
+                "primary": "Fish It calculator",
+                "secondary": [
+                    "Fish It guidelines",
+                    "Fish It codes",
+                    "Fish It script",
+                    "Fish It wiki"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "fishit-luck-drop-rate",
+                    "name": "Luck Calculator",
+                    "primary": "Fish It luck calculator",
+                    "secondary": [
+                        "Fish It drop chances",
+                        "how does luck work in Fish It",
+                        "Fish It legendary fish odds"
+                    ]
+                },
+                {
+                    "slug": "fishit-rare-fish-eta",
+                    "name": "Rare Fish ETA",
+                    "primary": "Fish It rare fish calculator",
+                    "secondary": [
+                        "time to catch legendary Fish It",
+                        "Fish It fishing simulator",
+                        "Fish It rare catch time"
+                    ]
+                },
+                {
+                    "slug": "fishit-profit-per-hour",
+                    "name": "Profit Calculator",
+                    "primary": "Fish It profit calculator",
+                    "secondary": [
+                        "Fish It gold farm",
+                        "best way to make money in Fish It",
+                        "Fish It earning rates"
+                    ]
+                }
+            ]
+        },
+        {
+            "slug": "fisch",
+            "name": "Fisch",
+            "hub": {
+                "primary": "Fisch calculator",
+                "secondary": [
+                    "Fisch roblox calculator",
+                    "Fisch value list",
+                    "Fisch codes",
+                    "Fisch wiki"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "fisch-fish-value-calculator",
+                    "name": "Fish Value Calculator",
+                    "primary": "Fisch fish value calculator",
+                    "secondary": [
+                        "Fisch mutation multiplier",
+                        "Fisch weight calculator",
+                        "most expensive fish in Fisch"
+                    ]
+                },
+                {
+                    "slug": "fisch-target-fish-solver",
+                    "name": "Target Fish Solver",
+                    "primary": "Fisch target fish finder",
+                    "secondary": [
+                        "Fisch fish locations",
+                        "where to catch shark in Fisch",
+                        "Fisch weather guide"
+                    ]
+                },
+                {
+                    "slug": "fisch-profit-optimizer",
+                    "name": "Profit Optimizer",
+                    "primary": "Fisch profit calculator",
+                    "secondary": [
+                        "Fisch best money method",
+                        "Fisch gold per hour",
+                        "Fisch economy guide"
+                    ]
+                }
+            ]
+        },
+        {
+            "slug": "bee-swarm-simulator",
+            "name": "Bee Swarm Simulator",
+            "hub": {
+                "primary": "Bee Swarm Simulator calculator",
+                "secondary": [
+                    "BSS calculator",
+                    "Bee Swarm Simulator codes",
+                    "BSS tools guide",
+                    "Bee Swarm wiki"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "bss-honey-calculator",
+                    "name": "Honey Calculator",
+                    "primary": "Bee Swarm Simulator honey calculator",
+                    "secondary": [
+                        "BSS honey per second",
+                        "Bee Swarm pollen multiplier",
+                        "how to get honey fast BSS"
+                    ]
+                },
+                {
+                    "slug": "bss-pollen-to-honey",
+                    "name": "Pollen Converter",
+                    "primary": "Bee Swarm Simulator pollen to honey",
+                    "secondary": [
+                        "BSS convert rate calculator",
+                        "Bee Swarm instant conversion",
+                        "pollen conversion Formula"
+                    ]
+                },
+                {
+                    "slug": "bss-honey-per-pollen",
+                    "name": "Honey Per Pollen",
+                    "primary": "Bee Swarm Simulator honey per pollen",
+                    "secondary": [
+                        "BSS hpp calculator",
+                        "optimize honey per pollen BSS",
+                        "Bee Swarm conversion guide"
+                    ]
+                }
+            ]
+        },
+        {
+            "slug": "grow-a-garden",
+            "name": "Grow a Garden",
+            "hub": {
+                "primary": "Grow a Garden calculator",
+                "secondary": [
+                    "Grow a Garden codes",
+                    "Grow a Garden value list",
+                    "Grow a Garden wiki",
+                    "GAG roblox"
+                ]
+            },
+            "tools": [
+                {
+                    "slug": "gag-crop-value-calculator",
+                    "name": "Crop Value Calculator",
+                    "primary": "Grow a Garden crop value calculator",
+                    "secondary": [
+                        "Grow a Garden best crops",
+                        "GAG mutation list",
+                        "Grow a Garden money farm"
+                    ]
+                },
+                {
+                    "slug": "gag-pet-weight-calculator",
+                    "name": "Pet Weight Calculator",
+                    "primary": "Grow a Garden pet weight calculator",
+                    "secondary": [
+                        "GAG pet guide",
+                        "how to make pets heavier Grow a Garden",
+                        "Grow a Garden pet stats"
+                    ]
+                },
+                {
+                    "slug": "gag-pet-xp-calculator",
+                    "name": "Pet XP Calculator",
+                    "primary": "Grow a Garden pet xp calculator",
+                    "secondary": [
+                        "Grow a Garden update info",
+                        "level up pets fast GAG",
+                        "Grow a Garden pet leveling guide"
+                    ]
+                }
+            ]
+        }
+    ]
+}

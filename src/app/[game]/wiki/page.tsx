@@ -44,6 +44,24 @@ const CATEGORY_LABELS: Record<string, string> = {
     'tier-list': '🏆 Tier Lists',
     codes: '🎁 Codes',
     faq: '❓ FAQ',
+    // Fish It & Fisch categories
+    fish: '🐟 Fish',
+    rods: '🎣 Rods',
+    locations: '🗺️ Locations',
+    baits: '🪱 Baits',
+    // Bee Swarm Simulator categories
+    bees: '🐝 Bees',
+    fields: '🌻 Fields',
+    items: '🎁 Items',
+    quests: '📝 Quests',
+    // Grow a Garden categories
+    crops: '🌱 Crops',
+    pets: '🐾 Pets',
+    tools: '🛠️ Tools',
+    // Escape Tsunami & Steal a Brainrot categories
+    upgrades: '⬆️ Upgrades',
+    brainrots: '🧠 Brainrots',
+    mechanics: '⚙️ Mechanics',
 }
 
 const RARITY_COLORS: Record<string, string> = {
@@ -71,7 +89,14 @@ export default function WikiListPage() {
                 'afse': 'afse',
                 'bomb-chip': 'bomb_chip',
                 'craft-a-brainrot': 'brainrot',
-                'rvb-tycoon': 'rvb_tycoon'
+                'rvb-tycoon': 'rvb_tycoon',
+                // Top 6 Expansion Games
+                'escape-tsunami-for-brainrots': 'etfb',
+                'steal-a-brainrot': 'sab',
+                'fish-it': 'fishit',
+                'fisch': 'fisch',
+                'bee-swarm-simulator': 'bss',
+                'grow-a-garden': 'gag'
             }
             const gameKey = gameKeyMap[gameSlug] || gameSlug
 

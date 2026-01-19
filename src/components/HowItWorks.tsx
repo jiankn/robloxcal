@@ -157,7 +157,94 @@ const toolSteps: Record<string, Step[]> = {
         { number: 2, icon: Target, title: 'Check Requirements', description: 'See ingredient costs and crafting time for each recipe', color: 'purple' },
         { number: 3, icon: Zap, title: 'Compare Profits', description: 'Find the most profitable recipes for your resources', color: 'green' }
     ],
+
+    // ========== TOP 6 EXPANSION (Jan 2026) ==========
+
+    // Escape Tsunami For Brainrots
+    etfb: [
+        { number: 1, icon: BarChart3, title: 'Enter Stats', description: 'Input your current rebirth level and money multiplier', color: 'cyan' },
+        { number: 2, icon: Target, title: 'Choose Calculator', description: 'Select Rebirth Advisor, Upgrade ROI, or Speed Planner', color: 'blue' },
+        { number: 3, icon: Zap, title: 'Optimize Gameplay', description: 'Get personalized recommendations to maximize progress', color: 'green' }
+    ],
+    'etfb-rebirth': [
+        { number: 1, icon: BarChart3, title: 'Enter Current Stats', description: 'Input your rebirth level, money, and current multiplier', color: 'cyan' },
+        { number: 2, icon: Target, title: 'Set Rebirth Goal', description: 'Choose your target multiplier or rebirth level', color: 'blue' },
+        { number: 3, icon: Zap, title: 'Get Timing', description: 'See optimal rebirth timing for maximum efficiency', color: 'green' }
+    ],
+
+    // Steal a Brainrot
+    sab: [
+        { number: 1, icon: BarChart3, title: 'Enter Income Data', description: 'Input your current brainrots and multipliers', color: 'orange' },
+        { number: 2, icon: Target, title: 'Check Rates', description: 'View drop rates and income projections', color: 'yellow' },
+        { number: 3, icon: Zap, title: 'Maximize Profit', description: 'Get the best brainrot investment strategy', color: 'green' }
+    ],
+    'sab-income': [
+        { number: 1, icon: BarChart3, title: 'Select Brainrots', description: 'Choose which brainrots you currently own', color: 'orange' },
+        { number: 2, icon: Target, title: 'Add Multipliers', description: 'Input your game passes and boost multipliers', color: 'yellow' },
+        { number: 3, icon: Zap, title: 'View Income', description: 'See your hourly and daily income projections', color: 'green' }
+    ],
+
+    // Fish It!
+    fishit: [
+        { number: 1, icon: BarChart3, title: 'Enter Luck Stats', description: 'Input your luck level and fishing rod bonus', color: 'teal' },
+        { number: 2, icon: Target, title: 'Select Fish Type', description: 'Choose which fish you want to calculate for', color: 'blue' },
+        { number: 3, icon: Zap, title: 'See Results', description: 'View drop rates, ETA, and profit estimates', color: 'green' }
+    ],
+    'fishit-luck': [
+        { number: 1, icon: BarChart3, title: 'Input Luck Level', description: 'Enter your current luck stat from the game', color: 'teal' },
+        { number: 2, icon: Target, title: 'Select Fish Rarity', description: 'Choose common, rare, epic, or legendary tier', color: 'purple' },
+        { number: 3, icon: Zap, title: 'Calculate Odds', description: 'See exact drop percentages for each fish type', color: 'green' }
+    ],
+
+    // Fisch
+    fisch: [
+        { number: 1, icon: BarChart3, title: 'Select Fish', description: 'Choose the fish species you want to calculate', color: 'blue' },
+        { number: 2, icon: Target, title: 'Add Mutations', description: 'Select golden, glowing, or other mutation types', color: 'yellow' },
+        { number: 3, icon: Zap, title: 'Get Value', description: 'See the exact coin value with all bonuses', color: 'green' }
+    ],
+    'fisch-value': [
+        { number: 1, icon: BarChart3, title: 'Choose Fish Type', description: 'Select from the list of 80+ fish species', color: 'blue' },
+        { number: 2, icon: Target, title: 'Configure Mutations', description: 'Toggle mutations like golden, huge, or iridescent', color: 'purple' },
+        { number: 3, icon: Zap, title: 'View Value', description: 'See base value, mutation bonus, and total worth', color: 'green' }
+    ],
+
+    // Bee Swarm Simulator
+    bss: [
+        { number: 1, icon: BarChart3, title: 'Enter Hive Stats', description: 'Input your bee count and hive bonuses', color: 'yellow' },
+        { number: 2, icon: Target, title: 'Add Bonuses', description: 'Select active boosts and field bonuses', color: 'orange' },
+        { number: 3, icon: Zap, title: 'Calculate Honey', description: 'See your honey production rate and projections', color: 'green' }
+    ],
+    'bss-honey': [
+        { number: 1, icon: BarChart3, title: 'Input Pollen Rate', description: 'Enter your pollen collection per second', color: 'yellow' },
+        { number: 2, icon: Target, title: 'Set Honey Bonuses', description: 'Add honey at hive, instant conversion, and other buffs', color: 'orange' },
+        { number: 3, icon: Zap, title: 'See Production', description: 'View honey per minute, hour, and day estimates', color: 'green' }
+    ],
+
+    // Grow a Garden
+    gag: [
+        { number: 1, icon: BarChart3, title: 'Select Crop', description: 'Choose the crop type you want to calculate', color: 'green' },
+        { number: 2, icon: Target, title: 'Add Mutations', description: 'Select mutations like rainbow, golden, or giant', color: 'purple' },
+        { number: 3, icon: Zap, title: 'See Value', description: 'Get exact coin value and selling recommendations', color: 'blue' }
+    ],
+    'gag-crop': [
+        { number: 1, icon: BarChart3, title: 'Choose Crop Type', description: 'Select from 30+ available crop species', color: 'green' },
+        { number: 2, icon: Target, title: 'Configure Mutations', description: 'Toggle mutations and weather effects', color: 'purple' },
+        { number: 3, icon: Zap, title: 'Calculate Worth', description: 'See base value, bonuses, and total selling price', color: 'yellow' }
+    ],
+    'gag-pet': [
+        { number: 1, icon: BarChart3, title: 'Select Pet Type', description: 'Choose your pet species and rarity', color: 'pink' },
+        { number: 2, icon: Target, title: 'Enter Stats', description: 'Input current level, age, or XP amount', color: 'purple' },
+        { number: 3, icon: Zap, title: 'View Results', description: 'See weight estimates or XP requirements', color: 'green' }
+    ],
+
+    // General fallback for new games
+    general: [
+        { number: 1, icon: BarChart3, title: 'Enter Your Stats', description: 'Input your current game stats and resources', color: 'purple' },
+        { number: 2, icon: Target, title: 'Choose Calculator', description: 'Select the tool that matches your goal', color: 'blue' },
+        { number: 3, icon: Zap, title: 'Get Insights', description: 'View optimized strategies and recommendations', color: 'green' }
+    ],
 }
+
 
 const colorStyles: Record<string, { bg: string; icon: string; border: string; number: string }> = {
     purple: {
@@ -207,8 +294,21 @@ const colorStyles: Record<string, { bg: string; icon: string; border: string; nu
         icon: 'text-indigo-400',
         border: 'border-indigo-500/20',
         number: 'bg-indigo-500/20 text-indigo-300'
+    },
+    cyan: {
+        bg: 'bg-cyan-500/10',
+        icon: 'text-cyan-400',
+        border: 'border-cyan-500/20',
+        number: 'bg-cyan-500/20 text-cyan-300'
+    },
+    teal: {
+        bg: 'bg-teal-500/10',
+        icon: 'text-teal-400',
+        border: 'border-teal-500/20',
+        number: 'bg-teal-500/20 text-teal-300'
     }
 }
+
 
 export function HowItWorks({ steps, proTip, toolType = 'afse' }: HowItWorksProps) {
     const activeSteps = steps || toolSteps[toolType] || defaultSteps

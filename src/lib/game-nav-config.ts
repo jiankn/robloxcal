@@ -11,7 +11,14 @@ import {
     Library,
     Castle,
     RefreshCw,
-    Target
+    Target,
+    Waves,
+    Skull,
+    Fish,
+    Anchor,
+    Hexagon,
+    Flower,
+    Calculator
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -64,6 +71,74 @@ export const GAME_NAV_CONFIG: Record<string, NavItem[]> = {
         { href: '/weapons', label: 'Weapons', icon: Sword },
         { href: '/tier-list', label: 'Tier List', icon: Trophy },
         { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // ===== TOP 6 EXPANSION (Jan 2026) =====
+
+    // Escape Tsunami For Brainrots 导航
+    etfb: [
+        { href: '/etfb-rebirth-calculator', label: 'Rebirth', icon: RefreshCw, isNew: true },
+        { href: '/etfb-upgrade-roi', label: 'Upgrade ROI', icon: TrendingUp },
+        { href: '/etfb-speed-planner', label: 'Speed', icon: Zap },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // Steal a Brainrot 导航
+    sab: [
+        { href: '/sab-income-calculator', label: 'Income', icon: Coins, isNew: true },
+        { href: '/sab-roi-calculator', label: 'ROI', icon: TrendingUp },
+        { href: '/sab-drop-rate-calculator', label: 'Drop Rate', icon: Target },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // Fish It! 导航
+    fishit: [
+        { href: '/fishit-luck-drop-rate', label: 'Luck', icon: Target, isNew: true },
+        { href: '/fishit-rare-fish-eta', label: 'Rare ETA', icon: Trophy },
+        { href: '/fishit-profit-per-hour', label: 'Profit', icon: Coins },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // Fisch 导航
+    fisch: [
+        { href: '/fisch-fish-value-calculator', label: 'Fish Value', icon: Calculator, isNew: true },
+        { href: '/fisch-target-fish-solver', label: 'Target Fish', icon: Crosshair },
+        { href: '/fisch-profit-optimizer', label: 'Profit', icon: TrendingUp },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // Bee Swarm Simulator 导航
+    bss: [
+        { href: '/bss-honey-calculator', label: 'Honey', icon: Coins, isNew: true },
+        { href: '/bss-pollen-to-honey', label: 'Pollen', icon: RefreshCw },
+        { href: '/bss-honey-per-pollen', label: 'Rate', icon: TrendingUp },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/codes', label: 'Codes', icon: Gift },
+        { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // Grow a Garden 导航
+    gag: [
+        { href: '/gag-crop-value-calculator', label: 'Crop Value', icon: Coins, isNew: true },
+        { href: '/gag-pet-weight-calculator', label: 'Pet Weight', icon: Target },
+        { href: '/gag-pet-xp-calculator', label: 'Pet XP', icon: Zap },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
         { href: '/codes', label: 'Codes', icon: Gift },
         { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
     ],

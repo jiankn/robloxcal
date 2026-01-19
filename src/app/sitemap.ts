@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllActiveGames } from '@/lib/game-config'
 import { createPublicServerClient } from '@/lib/supabase/server'
+import top6Keywords from '@/data/seo/top6-keywords.json'
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
 
@@ -79,6 +80,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'daily',
             priority: 0.9,
         })
+
+        // ============================================
+        // 自动生成新游戏工具页面（基于 top6-keywords.json）
+        // ============================================
+        if (game.slug in top6Keywords) {
+            const gameData = top6Keywords[game.slug as keyof typeof top6Keywords]
+            // 添加所有工具页面
+            for (const tool of gameData.tools) {
+                sitemapEntries.push({
+                    url: `${gamePrefix}/${tool.slug}`,
+                    lastModified: currentDate,
+                    changeFrequency: 'weekly',
+                    priority: 0.9,
+                })
+            }
+        }
 
         // AFSE 专属页面
         if (game.slug === 'afse') {
