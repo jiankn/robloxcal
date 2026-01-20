@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { GameLogo } from '@/components/GameLogo'
 import {
   Sword,
   Bomb,
@@ -126,9 +127,7 @@ export function GameCarousel({ games, autoPlayInterval = 4000 }: GameCarouselPro
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mt-3 sm:mt-4">
               {/* 游戏信息 */}
               <div className="flex items-center gap-3 sm:gap-6 flex-1">
-                <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-colors shrink-0 ${styles.iconWrap}`}>
-                  <Icon className={`h-6 w-6 sm:h-8 sm:w-8 ${styles.icon}`} />
-                </div>
+                <GameLogo slug={currentGame.slug} size={56} className="shrink-0 sm:w-16 sm:h-16" />
                 <div className="text-left flex-1 min-w-0">
                   <div className="font-bold text-white text-base sm:text-xl group-hover:text-current transition-colors mb-0.5 sm:mb-1 truncate">
                     {currentGame.name}
@@ -216,17 +215,13 @@ export function GameCarousel({ games, autoPlayInterval = 4000 }: GameCarouselPro
               <button
                 key={game.slug}
                 onClick={() => goToSlide(index)}
-                className={`relative p-2 rounded-xl transition-all ${index === currentIndex
-                  ? `${gameStyles.iconWrap} scale-110`
-                  : 'bg-zinc-800/50 hover:bg-zinc-700/50 scale-100'
+                className={`relative p-1.5 rounded-xl transition-all ${index === currentIndex
+                  ? `ring-2 ring-purple-500/50 scale-110`
+                  : 'opacity-60 hover:opacity-100 scale-100'
                   }`}
                 aria-label={`Go to ${game.name}`}
               >
-                <GameIcon className={`h-5 w-5 ${index === currentIndex ? gameStyles.icon : 'text-zinc-500'
-                  }`} />
-                {index === currentIndex && (
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-current rounded-full"></div>
-                )}
+                <GameLogo slug={game.slug} size={28} />
               </button>
             )
           })}

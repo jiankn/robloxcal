@@ -18,6 +18,13 @@ const GAME_KEY_TO_SLUG: Record<string, string> = {
     'bomb_chip': 'bomb-chip',
     'brainrot': 'craft-a-brainrot',
     'rvb_tycoon': 'rvb-tycoon',
+    // Top 6 Expansion Games
+    'etfb': 'escape-tsunami-for-brainrots',
+    'sab': 'steal-a-brainrot',
+    'fishit': 'fish-it',
+    'fisch': 'fisch',
+    'bss': 'bee-swarm-simulator',
+    'gag': 'grow-a-garden',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { GameSearch } from '@/components/GameSearch'
+import { GameLogo } from '@/components/GameLogo'
 import { getAllActiveGames } from '@/lib/game-config'
 import { ChevronRight, Gamepad2, Gift, Clock, Calculator, LayoutGrid } from 'lucide-react'
 
@@ -91,10 +92,8 @@ export default function GamesPage() {
                             <CardContent className="p-0">
                                 <Link href={`/${game.slug}`} className="block p-6 hover:bg-zinc-800/30 transition-colors">
                                     <div className="flex items-start gap-4">
-                                        {/* Game Icon */}
-                                        <div className={`p-3 rounded-xl transition-colors shrink-0 ${styles.iconWrap}`}>
-                                            <Gamepad2 className={`h-6 w-6 ${styles.icon}`} />
-                                        </div>
+                                        {/* Game Logo */}
+                                        <GameLogo slug={game.slug} size={48} className="shrink-0" />
 
                                         {/* Game Info */}
                                         <div className="flex-1 min-w-0">

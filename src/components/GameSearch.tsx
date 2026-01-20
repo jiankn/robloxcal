@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
-import { Search, Clock, TrendingUp, ChevronRight, Gamepad2, X } from 'lucide-react'
+import { GameLogo } from '@/components/GameLogo'
+import { Search, Clock, Flame, Gamepad2, X, ChevronRight, TrendingUp } from 'lucide-react'
 import Link from 'next/link'
 import { getAllActiveGames, type GameConfig } from '@/lib/game-config'
 
@@ -11,11 +12,13 @@ interface GameSearchProps {
     placeholder?: string
     compact?: boolean
     fullWidth?: boolean
+    onClose?: () => void  // 当因点击外部或ESC关闭时触发
+    autoFocus?: boolean   // 自动聚焦并展开下拉面板
 }
 
 const RECENT_GAMES_KEY = 'robloxcal_recent_games'
 
-export function GameSearch({ placeholder = 'Search games...', compact = false, fullWidth = false }: GameSearchProps) {
+export function GameSearch({ placeholder = 'Search games...', compact = false, fullWidth = false, onClose, autoFocus = false }: GameSearchProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
     const [recentGames, setRecentGames] = useState<string[]>([])
@@ -33,6 +36,14 @@ export function GameSearch({ placeholder = 'Search games...', compact = false, f
             } catch { }
         }
     }, [])
+
+    // 自动聚焦并展开下拉面板
+    useEffect(() => {
+        if (autoFocus && inputRef.current) {
+            inputRef.current.focus()
+            setIsOpen(true)
+        }
+    }, [autoFocus])
 
     // 过滤游戏
     const filteredGames = searchTerm
@@ -56,11 +67,12 @@ export function GameSearch({ placeholder = 'Search games...', compact = false, f
         function handleClickOutside(event: MouseEvent) {
             if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
                 setIsOpen(false)
+                onClose?.()  // 通知父组件关闭覆盖层
             }
         }
         document.addEventListener('mousedown', handleClickOutside)
         return () => document.removeEventListener('mousedown', handleClickOutside)
-    }, [])
+    }, [onClose])
 
     // ESC 键关闭
     useEffect(() => {
@@ -68,11 +80,12 @@ export function GameSearch({ placeholder = 'Search games...', compact = false, f
             if (event.key === 'Escape') {
                 setIsOpen(false)
                 inputRef.current?.blur()
+                onClose?.()  // 通知父组件关闭覆盖层
             }
         }
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [])
+    }, [onClose])
 
     const recordVisit = (slug: string) => {
         const updated = [slug, ...recentGames.filter(s => s !== slug)].slice(0, 3)
@@ -102,9 +115,7 @@ export function GameSearch({ placeholder = 'Search games...', compact = false, f
             }}
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-zinc-800/80 transition-all group"
         >
-            <div className="p-2 rounded-lg bg-gradient-to-br from-purple-600/20 to-pink-600/20 group-hover:from-purple-600/30 group-hover:to-pink-600/30 transition-colors">
-                <Gamepad2 className="h-4 w-4 text-purple-400" />
-            </div>
+            <GameLogo slug={game.slug} size={32} />
             <div className="flex-1 min-w-0">
                 <div className="font-medium text-white group-hover:text-purple-300 transition-colors truncate">
                     {game.full_name}

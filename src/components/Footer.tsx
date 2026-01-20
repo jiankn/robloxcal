@@ -6,8 +6,8 @@ import { getAllActiveGames } from '@/lib/game-config'
 import { ProtectedEmail } from '@/components/ProtectedEmail'
 
 export function Footer() {
-    const featuredGames = getAllActiveGames().filter(g => g.is_featured).slice(0, 5)
-    const totalGames = getAllActiveGames().length
+    const allGames = getAllActiveGames()
+    const totalGames = allGames.length
 
     return (
         <footer className="border-t border-zinc-800/50 bg-zinc-950 pt-8 mt-auto">
@@ -35,7 +35,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-semibold text-white mb-3">Calculators</h3>
                         <ul className="space-y-2 text-sm">
-                            {featuredGames.map(game => (
+                            {allGames.map(game => (
                                 <li key={game.slug}>
                                     <Link
                                         href={`/${game.slug}`}
@@ -68,7 +68,7 @@ export function Footer() {
                     <div>
                         <h3 className="font-semibold text-white mb-3">Game Codes</h3>
                         <ul className="space-y-2 text-sm">
-                            {featuredGames.map(game => (
+                            {allGames.map(game => (
                                 <li key={game.slug}>
                                     <Link
                                         href={`/${game.slug}/codes`}

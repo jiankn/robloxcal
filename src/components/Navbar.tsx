@@ -36,9 +36,11 @@ import {
     Zap,
     Calculator,
     Percent,
-    Wrench
+    Wrench,
+    Search
 } from 'lucide-react'
 import { GameSearch, recordGameVisit, getRecentGames } from '@/components/GameSearch'
+import { GameLogo } from '@/components/GameLogo'
 import { getNavItems } from '@/lib/game-nav-config'
 import { getAllActiveGames, getGameBySlug, type GameConfig } from '@/lib/game-config'
 
@@ -74,7 +76,7 @@ function GamesDropdown() {
                             href={`/${game.slug}`}
                             className="flex items-center gap-3 cursor-pointer"
                         >
-                            <Gamepad2 className="h-4 w-4 text-zinc-400" />
+                            <GameLogo slug={game.slug} size={28} />
                             <div className="flex-1">
                                 <div className="font-medium text-white">{game.display_name}</div>
                                 <div className="text-xs text-zinc-500">{game.full_name}</div>
@@ -135,7 +137,7 @@ function CodesDropdown() {
                             href={`/${update.slug}/codes`}
                             className="flex items-center gap-3 cursor-pointer py-2.5"
                         >
-                            <Gamepad2 className="h-4 w-4 text-zinc-400" />
+                            <GameLogo slug={update.slug} size={20} />
                             <div className="flex-1">
                                 <div className="flex items-center gap-2">
                                     <span className="font-medium text-white">{update.game} Codes</span>
@@ -361,6 +363,7 @@ function GlobalNavbar() {
 function GameNavbar({ game }: { game: GameConfig }) {
     const pathname = usePathname()
     const [isOpen, setIsOpen] = useState(false)
+    const [isSearchOpen, setIsSearchOpen] = useState(false)
     const allGames = getAllActiveGames()
     const navItems = getNavItems(game.game_key)
     // no dynamic indicator refs to avoid SSR/webpack runtime issues
@@ -425,22 +428,22 @@ function GameNavbar({ game }: { game: GameConfig }) {
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
                                 align="end"
-                                className="w-[420px] bg-zinc-900/95 backdrop-blur-xl border-zinc-700 p-0"
+                                className="w-[320px] bg-zinc-900/95 backdrop-blur-xl border-zinc-700 p-0"
                             >
                                 {/* Mega Menu Header */}
-                                <div className="px-4 py-3 border-b border-zinc-800">
+                                <div className="px-3 py-2 border-b border-zinc-800">
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                                            <LayoutGrid className="h-4 w-4 text-purple-400" />
+                                        <div className="flex items-center gap-1.5 text-xs font-semibold text-white">
+                                            <LayoutGrid className="h-3.5 w-3.5 text-purple-400" />
                                             Switch Game
                                         </div>
-                                        <span className="text-xs text-zinc-500">{allGames.length} games</span>
+                                        <span className="text-[10px] text-zinc-500">{allGames.length} games</span>
                                     </div>
                                 </div>
 
-                                {/* Games Grid */}
-                                <div className="p-3">
-                                    <div className="grid grid-cols-2 gap-2">
+                                {/* Games Grid - 紧凑横向布局 */}
+                                <div className="p-2 max-h-[280px] overflow-y-auto">
+                                    <div className="grid grid-cols-2 gap-1.5">
                                         {allGames.map((g, index) => {
                                             const isCurrent = g.slug === game.slug
                                             const isPopular = index < 2
@@ -450,46 +453,27 @@ function GameNavbar({ game }: { game: GameConfig }) {
                                                 <DropdownMenuItem key={g.slug} asChild className="p-0">
                                                     <Link
                                                         href={`/${g.slug}`}
-                                                        className={`flex flex-col p-3 rounded-lg transition-all group ${isCurrent
-                                                            ? 'bg-gradient-to-br from-purple-600/20 to-pink-600/10 border border-purple-500/30 ring-1 ring-purple-500/20'
-                                                            : 'hover:bg-zinc-800/80 border border-transparent hover:border-zinc-700'
+                                                        className={`flex items-center gap-2 px-2 py-2 rounded-md transition-all group ${isCurrent
+                                                            ? 'bg-purple-500/15 border border-purple-500/30'
+                                                            : 'hover:bg-zinc-800/80 border border-transparent'
                                                             }`}
                                                     >
-                                                        <div className="flex items-start justify-between mb-1.5">
-                                                            <div className={`p-1.5 rounded-lg ${isCurrent
-                                                                ? 'bg-purple-500/20'
-                                                                : 'bg-zinc-800 group-hover:bg-zinc-700'
-                                                                }`}>
-                                                                <Gamepad2 className={`h-4 w-4 ${isCurrent ? 'text-purple-400' : 'text-zinc-400'
-                                                                    }`} />
-                                                            </div>
+                                                        <GameLogo slug={g.slug} size={24} className="shrink-0" />
+                                                        <div className="flex-1 min-w-0">
                                                             <div className="flex items-center gap-1">
+                                                                <span className={`text-xs font-medium truncate ${isCurrent ? 'text-purple-300' : 'text-white'}`}>
+                                                                    {g.display_name}
+                                                                </span>
                                                                 {isPopular && !isCurrent && (
-                                                                    <Badge className="text-[9px] px-1 py-0 bg-orange-500/20 text-orange-400 border-orange-500/30">
-                                                                        🔥
-                                                                    </Badge>
+                                                                    <span className="text-[9px]">🔥</span>
                                                                 )}
                                                                 {isCurrent && (
-                                                                    <Badge className="text-[9px] px-1.5 py-0 bg-purple-500/20 text-purple-300 border-purple-500/30">
-                                                                        Current
-                                                                    </Badge>
+                                                                    <span className="text-[9px] text-purple-400">✓</span>
                                                                 )}
                                                             </div>
-                                                        </div>
-                                                        <div className="font-medium text-white text-sm truncate">
-                                                            {g.display_name}
-                                                        </div>
-                                                        <div className="flex items-center gap-2 mt-1">
-                                                            {codeInfo && codeInfo.newCodes > 0 ? (
-                                                                <span className="text-[10px] text-green-400 flex items-center gap-0.5">
-                                                                    <Gift className="h-3 w-3" />
+                                                            {codeInfo && codeInfo.newCodes > 0 && (
+                                                                <span className="text-[9px] text-green-400">
                                                                     +{codeInfo.newCodes} codes
-                                                                </span>
-                                                            ) : (
-                                                                <span className="text-[10px] text-zinc-500">
-                                                                    {g.full_name.length > 20
-                                                                        ? g.full_name.substring(0, 18) + '...'
-                                                                        : g.full_name}
                                                                 </span>
                                                             )}
                                                         </div>
@@ -501,16 +485,16 @@ function GameNavbar({ game }: { game: GameConfig }) {
                                 </div>
 
                                 {/* Footer */}
-                                <div className="px-4 py-2.5 border-t border-zinc-800 bg-zinc-900/50">
+                                <div className="px-3 py-2 border-t border-zinc-800 bg-zinc-900/50">
                                     <Link
                                         href="/games"
-                                        className="flex items-center justify-between text-xs text-zinc-400 hover:text-white transition-colors"
+                                        className="flex items-center justify-between text-[10px] text-zinc-400 hover:text-white transition-colors"
                                     >
-                                        <span className="flex items-center gap-1.5">
-                                            <LayoutGrid className="h-3.5 w-3.5" />
+                                        <span className="flex items-center gap-1">
+                                            <LayoutGrid className="h-3 w-3" />
                                             View All Games
                                         </span>
-                                        <ChevronRight className="h-3.5 w-3.5" />
+                                        <ChevronRight className="h-3 w-3" />
                                     </Link>
                                 </div>
                             </DropdownMenuContent>
@@ -556,8 +540,9 @@ function GameNavbar({ game }: { game: GameConfig }) {
                     })}
                 </div>
 
-                {/* Mobile Menu */}
+                {/* Mobile Menu - 分离搜索和菜单 */}
                 <div className="md:hidden flex h-11 items-center justify-between">
+                    {/* 左侧：菜单按钮 */}
                     <Sheet open={isOpen} onOpenChange={setIsOpen}>
                         <SheetTrigger asChild>
                             <Button variant="ghost" size="sm" className="text-zinc-400" aria-label="Open game menu">
@@ -569,12 +554,7 @@ function GameNavbar({ game }: { game: GameConfig }) {
                             <SheetTitle className="sr-only">Game Menu</SheetTitle>
                             <SheetDescription className="sr-only">Game navigation and tools</SheetDescription>
                             <div className="flex flex-col h-full">
-                                {/* 搜索 */}
-                                <div className="p-4 border-b border-zinc-800">
-                                    <GameSearch placeholder="Search games..." />
-                                </div>
-
-                                {/* 游戏切换器 */}
+                                {/* 游戏切换器 - 移到顶部 */}
                                 <div className="p-4 border-b border-zinc-800">
                                     <div className="text-xs text-zinc-500 uppercase mb-2">Current Game</div>
                                     <div className="font-medium text-white">{game.full_name}</div>
@@ -621,9 +601,64 @@ function GameNavbar({ game }: { game: GameConfig }) {
                             </div>
                         </SheetContent>
                     </Sheet>
+
+                    {/* 右侧：独立的搜索按钮 */}
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-zinc-400"
+                        onClick={() => setIsSearchOpen(true)}
+                        aria-label="Search games"
+                    >
+                        <Search className="h-5 w-5" />
+                    </Button>
                 </div>
             </div>
-        </nav>
+
+            {/* 全屏搜索覆盖层 - 仅手机端 */}
+            {
+                isSearchOpen && (
+                    <div
+                        className="md:hidden fixed inset-0 z-[100] bg-zinc-950/98 backdrop-blur-xl"
+                        onClick={(e) => {
+                            // 点击覆盖层空白区域时关闭
+                            if (e.target === e.currentTarget) {
+                                setIsSearchOpen(false)
+                            }
+                        }}
+                    >
+                        {/* 搜索头部 */}
+                        <div className="flex items-center gap-3 p-4 border-b border-zinc-800">
+                            <div className="flex-1">
+                                <GameSearch
+                                    placeholder="Search games..."
+                                    fullWidth
+                                    autoFocus
+                                    onClose={() => setIsSearchOpen(false)}
+                                />
+                            </div>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className="text-zinc-400 shrink-0"
+                                onClick={() => setIsSearchOpen(false)}
+                            >
+                                Cancel
+                            </Button>
+                        </div>
+
+                        {/* 点击此区域关闭覆盖层 */}
+                        <div
+                            className="flex-1 p-4 text-center text-zinc-500 text-sm"
+                            onClick={() => setIsSearchOpen(false)}
+                        >
+                            <p>Search for games, calculators, codes...</p>
+                            <p className="mt-2 text-xs text-zinc-600">Tap here to close</p>
+                        </div>
+                    </div>
+                )
+            }
+        </nav >
     )
 }
 

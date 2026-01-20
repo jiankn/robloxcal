@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { CalculatorLayout } from '@/components/CalculatorLayout'
 import { Share2, Sparkles, Fish } from 'lucide-react'
-import { calculateDropChance } from '@/lib/calculators/engines/probability-engine'
 
 const GAME_SLUG = 'fish-it'
 

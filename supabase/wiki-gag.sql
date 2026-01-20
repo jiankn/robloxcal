@@ -275,76 +275,155 @@ true),
 
 -- 4. Friend Boost
 ('gag', 'mechanics', 'friend-boost',
-'Grow a Garden Friend Boost - How It Works 2026',
+'Grow a Garden Friend Boost - Complete Multiplier Guide 2026',
 'Friend Boost',
-'Complete friend boost guide for Grow a Garden. Maximize your value by playing with friends.',
+'Complete friend boost guide for Grow a Garden 2026. Learn how playing with friends multiplies your crop value and mutation rates. Maximize earnings with our tips.',
 '# Grow a Garden Friend Boost Guide 2026
 
-Friend boost is free extra value just for playing together!
+Friend boost is one of the most powerful and completely free mechanics in Grow a Garden. Simply by playing with friends in the same server, everyone receives massive bonuses to crop value and mutation rates!
 
-## How Friend Boost Works
+## What is Friend Boost?
 
-When friends are in your garden, everyone gets bonuses!
+Friend Boost is a multiplier system that rewards players for farming together. When you have friends in your garden server, both your crop sell values and mutation chances increase significantly.
 
-## Boost Levels
+**Key Benefits:**
+- **100% FREE** - No items, passes, or currency required
+- **Stacks with everything** - Works on top of mutations, pet bonuses, and events
+- **Applies automatically** - Just be in the same server
+- **Benefits everyone** - All players in the server get the boost
 
-| Friends | Value Boost | Mutation Boost |
-|---------|-------------|----------------|
-| 1 | +10% | +5% |
-| 2 | +25% | +10% |
-| 3 | +40% | +15% |
-| 4 | +60% | +20% |
-| 5+ | +100% | +25% |
+## Friend Boost Levels & Multipliers
 
-## Value Calculation
+The more friends you have, the bigger your bonus:
+
+| Friends in Server | Value Boost | Mutation Boost | Total Benefit |
+|-------------------|-------------|----------------|---------------|
+| 0 (Solo) | 0% | 0% | Base rate |
+| 1 Friend | +10% | +5% | 1.1x value |
+| 2 Friends | +25% | +10% | 1.25x value |
+| 3 Friends | +40% | +15% | 1.4x value |
+| 4 Friends | +60% | +20% | 1.6x value |
+| 5+ Friends | +100% | +25% | 2x value! |
+
+> **Pro Tip:** With 5 or more friends, you literally DOUBLE your crop value! This is the single biggest free multiplier in the game.
+
+## How the Math Works
+
+Friend Boost multiplies your final crop value:
 
 ```
-Boosted Value = BaseValue × (1 + FriendBoost%)
+Final Value = Base Value × Weight × Mutation × (1 + FriendBoost%)
 ```
 
-### Example with 5 Friends:
-- Base crop: 100
-- With 100% boost: 200!
+### Real Examples
 
-Double the coins just for having friends online!
+**Example 1: Rainbow Melon with 5 Friends**
+- Base Value: 5,000
+- Weight: 1.5x (medium)
+- No Mutation: 1x
+- Friend Boost: +100%
 
-## How to Maximize
+```
+Final = 5,000 × 1.5 × 1.0 × 2.0 = 15,000 coins!
+```
 
-### Tips
-1. Invite friends to your server
-2. Farm in the same garden plot
-3. Time harvests together
-4. Join community Discord for groups
+**Example 2: Golden Mutation + 3 Friends**
+- Base Value: 1,000
+- Weight: 2x (heavy)
+- Golden Mutation: 3x
+- Friend Boost: +40%
 
-### AFK Friends Count
-- Friends just need to be in-game
-- They dont have to actively farm
-- AFK friends still provide boost
+```
+Final = 1,000 × 2 × 3 × 1.4 = 8,400 coins!
+```
 
-### Stacks with Everything
-- Mutations
-- Weight bonuses
-- Pet abilities
-- Event multipliers
+## Maximizing Your Friend Boost
 
-## Finding Friends
+### Best Practices
 
-### Community Options
-1. Official Discord LFG
-2. Reddit communities
-3. In-game player hubs
-4. YouTube community servers
+1. **Always play with at least 1 friend** - Even +10% adds up over time
+2. **Aim for 5+ friends** - The 2x multiplier is game-changing
+3. **Coordinate harvest times** - Everyone benefits from the boost
+4. **Use Discord for groups** - Find farming partners easily
+5. **Time major harvests together** - Legendary crops + 5 friends = massive profit
 
-### Keeps Boost
-- Boost persists while friends online
-- Resets when friends leave
-- Rejoin to regain boost
+### AFK Friends Still Count!
+
+Good news: Friends dont need to actively farm to provide the boost!
+
+- Friends just need to be **in the game server**
+- They can be AFK, chatting, or doing anything
+- The boost applies as long as theyre connected
+- Perfect for coordinating with busy friends
+
+### Finding Friends to Farm With
+
+**Community Resources:**
+| Platform | Where to Find |
+|----------|---------------|
+| Discord | Official GAG server LFG channels |
+| Reddit | r/GrowAGardenRoblox |
+| In-Game | Player hubs and trading areas |
+| YouTube | Community Discord links |
+| Twitter/X | #GrowAGarden hashtag |
+
+## Friend Boost Stacking
+
+Friend Boost stacks multiplicatively with other bonuses:
+
+| Bonus Type | Stacks With Friend Boost? |
+|------------|---------------------------|
+| Mutations | ✅ Yes - Multiplies together |
+| Weight Bonus | ✅ Yes - Multiplies together |
+| Pet Abilities | ✅ Yes - Multiplies together |
+| Event Multipliers | ✅ Yes - Multiplies together |
+| Fertilizer | ✅ Yes - Multiplies together |
+
+### Maximum Value Stack Example
+
+- Rainbow Melon (5,000 base)
+- Heavy weight (3x)
+- Cosmic Mutation (10x)
+- 5+ Friends (2x)
+- Event bonus (1.5x)
+
+```
+Maximum = 5,000 × 3 × 10 × 2 × 1.5 = 450,000 coins!
+```
+
+## Common Questions
+
+### Q: Does friend boost work on all crops?
+**A:** Yes! Every crop benefits from friend boost equally.
+
+### Q: Do private servers count?
+**A:** Yes, as long as friends are in your private server with you.
+
+### Q: What if a friend leaves mid-harvest?
+**A:** The boost recalculates instantly. Try to have friends stay until you sell.
+
+### Q: Can strangers count as friends?
+**A:** The boost works with Roblox friends AND anyone in the same server. Some players call the server boost "player boost" to differentiate.
+
+### Q: Is there a maximum number of friends?
+**A:** The max boost is at 5+ friends (100% value / 25% mutation). More friends dont increase it further, but more people means more fun!
+
+## Strategy: Friend Boost Farming Sessions
+
+For maximum efficiency, organize dedicated farming sessions:
+
+1. **Schedule a time** - Pick when most friends are free
+2. **Join same server** - Use VIP server or join on host
+3. **Plant high-value crops** - Legendaries benefit most
+4. **Coordinate watering** - Help each other
+5. **Harvest together** - Everyone gets 2x value
+6. **Celebrate profits** - Share your results!
 
 ---
 
-*Friends = free multiplier!*',
-ARRAY['grow a garden friend boost', 'friend boost explained grow a garden', 'how friend boost affects value grow a garden'],
-'{"type": "mechanic", "word_count": 300}'::jsonb,
+*Friend boost is the ultimate free advantage. Never farm solo when you can double your profits with friends!*',
+ARRAY['grow a garden friend boost', 'friend boost explained grow a garden', 'how friend boost affects value grow a garden', 'grow a garden multiplayer bonus', 'grow a garden friend boost guide 2026'],
+'{"type": "mechanic", "word_count": 850, "priority": "high"}'::jsonb,
 true),
 
 -- 5. Pets Guide

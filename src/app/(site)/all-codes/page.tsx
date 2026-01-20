@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getAllActiveGames } from '@/lib/game-config'
+import { GameLogo } from '@/components/GameLogo'
 import { ChevronRight, Gift, Clock, Gamepad2, Sparkles } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -93,9 +94,7 @@ export default function CodesPage() {
                                 <Card className={`glass-card border-zinc-800/50 transition-all overflow-hidden ${styles.border} ${hasNewCodes ? 'ring-1 ring-green-500/30' : ''}`}>
                                     <CardContent className="p-5">
                                         <div className="flex items-center gap-4">
-                                            <div className={`p-3 rounded-xl transition-colors ${styles.iconWrap}`}>
-                                                <Gamepad2 className={`h-6 w-6 ${styles.icon}`} />
-                                            </div>
+                                            <GameLogo slug={code.slug} size={48} />
 
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2 mb-1">
@@ -148,9 +147,7 @@ export default function CodesPage() {
                                 <Card className={`glass-card border-zinc-800/50 transition-all h-full ${styles.border}`}>
                                     <CardContent className="p-4">
                                         <div className="flex items-center gap-3 mb-3">
-                                            <div className={`p-2 rounded-lg transition-colors ${styles.iconWrap}`}>
-                                                <Gamepad2 className={`h-5 w-5 ${styles.icon}`} />
-                                            </div>
+                                            <GameLogo slug={game.slug} size={36} />
                                             <div className="flex-1 min-w-0">
                                                 <h3 className="font-semibold text-white truncate group-hover:text-green-300 transition-colors">
                                                     {game.display_name}
