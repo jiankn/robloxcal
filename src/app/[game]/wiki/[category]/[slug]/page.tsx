@@ -27,7 +27,11 @@ const GAME_KEY_MAP: Record<string, string> = {
     'fish-it': 'fishit',
     'fisch': 'fisch',
     'bee-swarm-simulator': 'bss',
-    'grow-a-garden': 'gag'
+    'grow-a-garden': 'gag',
+    // New Games (Jan 2026)
+    'plants-vs-brainrots': 'pvb',
+    'the-forge': 'forge',
+    'anime-guardians': 'ag'
 }
 
 const GAME_NAMES: Record<string, string> = {
@@ -41,7 +45,11 @@ const GAME_NAMES: Record<string, string> = {
     'fish-it': 'Fish It!',
     'fisch': 'Fisch',
     'bee-swarm-simulator': 'Bee Swarm Simulator',
-    'grow-a-garden': 'Grow a Garden'
+    'grow-a-garden': 'Grow a Garden',
+    // New Games (Jan 2026)
+    'plants-vs-brainrots': 'Plants Vs Brainrots',
+    'the-forge': 'The Forge',
+    'anime-guardians': 'Anime Guardians'
 }
 
 // 游戏主题色 - 用于渐变背景
@@ -86,6 +94,19 @@ const GAME_THEMES: Record<string, { accent: string; gradient: string }> = {
     'grow-a-garden': {
         accent: '#22c55e',
         gradient: 'from-green-950/30 via-transparent to-transparent'
+    },
+    // New Games (Jan 2026)
+    'plants-vs-brainrots': {
+        accent: '#22c55e',
+        gradient: 'from-green-950/30 via-transparent to-transparent'
+    },
+    'the-forge': {
+        accent: '#f97316',
+        gradient: 'from-orange-950/30 via-transparent to-transparent'
+    },
+    'anime-guardians': {
+        accent: '#8b5cf6',
+        gradient: 'from-violet-950/30 via-transparent to-transparent'
     }
 }
 
