@@ -127,7 +127,7 @@ export function GameCarousel({ games, autoPlayInterval = 4000 }: GameCarouselPro
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mt-3 sm:mt-4">
               {/* 游戏信息 */}
               <div className="flex items-center gap-3 sm:gap-6 flex-1">
-                <GameLogo slug={currentGame.slug} size={56} className="shrink-0 sm:w-16 sm:h-16" />
+                <GameLogo slug={currentGame.slug} size={56} className="shrink-0 sm:w-16 sm:h-16" priority />
                 <div className="text-left flex-1 min-w-0">
                   <div className="font-bold text-white text-base sm:text-xl group-hover:text-current transition-colors mb-0.5 sm:mb-1 truncate">
                     {currentGame.name}

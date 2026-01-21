@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    // 启用图片优化，设置常用尺寸
+    deviceSizes: [640, 750, 828, 1080, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128],
+    formats: ['image/webp'],
   },
   // 使用 Webpack 配置修复 Windows 路径大小写问题
   webpack: (config, { isServer }) => {

@@ -9,17 +9,21 @@ interface GameLogoProps {
     size?: number
     className?: string
     fallbackClassName?: string
+    /** 是否为首屏关键图片，设为 true 启用预加载 */
+    priority?: boolean
 }
 
 /**
  * 游戏 Logo 组件
  * 显示游戏官方 Logo，如果加载失败则显示通用图标
+ * 使用 Next.js Image 自动优化图片尺寸和格式
  */
 export function GameLogo({
     slug,
     size = 32,
     className = '',
-    fallbackClassName = ''
+    fallbackClassName = '',
+    priority = false
 }: GameLogoProps) {
     const [hasError, setHasError] = useState(false)
     const logoPath = `/games/logos/${slug}.webp`
@@ -44,7 +48,9 @@ export function GameLogo({
             height={size}
             className={`rounded-lg object-cover ${className}`}
             onError={() => setHasError(true)}
-            unoptimized
+            priority={priority}
+            loading={priority ? undefined : 'lazy'}
+            sizes={`${size}px`}
         />
     )
 }
