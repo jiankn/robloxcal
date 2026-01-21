@@ -25,6 +25,10 @@ const GAME_KEY_TO_SLUG: Record<string, string> = {
     'fisch': 'fisch',
     'bss': 'bee-swarm-simulator',
     'gag': 'grow-a-garden',
+    // New Games (Jan 2026)
+    'pvb': 'plants-vs-brainrots',
+    'forge': 'the-forge',
+    'ag': 'anime-guardians',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -253,6 +257,54 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 lastModified: currentDate,
                 changeFrequency: 'weekly',
                 priority: 0.8,
+            })
+        }
+
+        // Plants Vs Brainrots 专属页面
+        if (game.slug === 'plants-vs-brainrots') {
+            sitemapEntries.push({
+                url: `${gamePrefix}/pvb-dps-calculator`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
+            })
+            sitemapEntries.push({
+                url: `${gamePrefix}/pvb-tier-list`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
+            })
+        }
+
+        // The Forge 专属页面
+        if (game.slug === 'the-forge') {
+            sitemapEntries.push({
+                url: `${gamePrefix}/forge-calculator`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
+            })
+            sitemapEntries.push({
+                url: `${gamePrefix}/forge-tier-list`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
+            })
+        }
+
+        // Anime Guardians 专属页面
+        if (game.slug === 'anime-guardians') {
+            sitemapEntries.push({
+                url: `${gamePrefix}/ag-artifact-calculator`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
+            })
+            sitemapEntries.push({
+                url: `${gamePrefix}/ag-tier-list`,
+                lastModified: currentDate,
+                changeFrequency: 'weekly',
+                priority: 0.9,
             })
         }
     }
