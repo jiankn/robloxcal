@@ -96,7 +96,11 @@ export default function WikiListPage() {
                 'fish-it': 'fishit',
                 'fisch': 'fisch',
                 'bee-swarm-simulator': 'bss',
-                'grow-a-garden': 'gag'
+                'grow-a-garden': 'gag',
+                // New Games (Jan 2026)
+                'plants-vs-brainrots': 'pvb',
+                'the-forge': 'forge',
+                'anime-guardians': 'ag'
             }
             const gameKey = gameKeyMap[gameSlug] || gameSlug
 
