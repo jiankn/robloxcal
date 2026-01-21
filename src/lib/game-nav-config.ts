@@ -151,7 +151,7 @@ export const GAME_NAV_CONFIG: Record<string, NavItem[]> = {
     // Plants Vs Brainrots 导航
     pvb: [
         { href: '/pvb-dps-calculator', label: 'DPS', icon: Sword, isNew: true },
-        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/pvb-tier-list', label: 'Tier List', icon: Trophy },
         { href: '/wiki', label: 'Wiki', icon: Library },
         { href: '/codes', label: 'Codes', icon: Gift },
     ],
@@ -159,7 +159,7 @@ export const GAME_NAV_CONFIG: Record<string, NavItem[]> = {
     // The Forge 导航
     forge: [
         { href: '/forge-calculator', label: 'Forge', icon: Hammer, isNew: true },
-        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/forge-tier-list', label: 'Tier List', icon: Trophy },
         { href: '/wiki', label: 'Wiki', icon: Library },
         { href: '/codes', label: 'Codes', icon: Gift },
     ],
