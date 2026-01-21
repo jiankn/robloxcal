@@ -182,6 +182,93 @@ export const GAME_CODES: Record<string, GameCodesData> = {
             { href: '/escape-tsunami-for-brainrots/etfb-rebirth-calculator', label: 'Rebirth Calculator' },
             { href: '/escape-tsunami-for-brainrots/etfb-upgrade-roi', label: 'Upgrade ROI' }
         ]
+    },
+    'plants-vs-brainrots': {
+        gameName: 'Plants Vs Brainrots Codes',
+        gameSlug: 'plants-vs-brainrots',
+        description: 'All working codes for Plants Vs Brainrots. Free cash, lucky potions, and exclusive items! Updated January 2026.',
+        howToRedeem: [
+            'Launch <strong>Plants Vs Brainrots</strong> on Roblox',
+            'Click the <strong>Shop</strong> icon on the left side',
+            'Scroll down to the <strong>Codes</strong> section under Rewards',
+            'Enter code and click <strong>Claim</strong>!'
+        ],
+        activeCodes: [
+            { code: 'STACKS', reward: '1 Lucky Potion', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'frozen', reward: '1 Frost Grenade', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'based', reward: '$5,000 Cash', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'disguise', reward: '1 Disguise Glasses', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'stone', reward: '1 Medusa\'s Head', status: 'active', addedDate: 'Jan 2026' },
+        ],
+        expiredCodes: [],
+        socialLinks: {
+            discord: 'https://discord.gg/pvb',
+            robloxGame: 'https://www.roblox.com/games/plants-vs-brainrots'
+        },
+        relatedTools: [
+            { href: '/plants-vs-brainrots/pvb-dps-calculator', label: 'DPS Calculator' },
+            { href: '/plants-vs-brainrots/tier-list', label: 'Plant Tier List' }
+        ]
+    },
+    'the-forge': {
+        gameName: 'The Forge Codes',
+        gameSlug: 'the-forge',
+        description: 'All working codes for The Forge. Free rerolls, totems, and crafting materials! Updated January 2026.',
+        howToRedeem: [
+            'Launch <strong>The Forge</strong> on Roblox',
+            'Click the <strong>Settings</strong> button',
+            'Scroll to the <strong>Codes</strong> section',
+            'Type in the code and press Enter!'
+        ],
+        activeCodes: [
+            { code: 'QOL!', reward: '10 Rerolls', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'PIRATE', reward: '5 Rerolls + 1 Totem', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'FORGE', reward: '3 Rerolls', status: 'active', addedDate: 'Dec 2025' },
+        ],
+        expiredCodes: [
+            { code: 'RELEASE', reward: '5 Rerolls', status: 'expired', addedDate: 'Nov 2025' },
+        ],
+        socialLinks: {
+            discord: 'https://discord.gg/theforge',
+            robloxGame: 'https://www.roblox.com/games/the-forge'
+        },
+        relatedTools: [
+            { href: '/the-forge/forge-calculator', label: 'Forge Calculator' },
+            { href: '/the-forge/tier-list', label: 'Ore Tier List' }
+        ]
+    },
+    'anime-guardians': {
+        gameName: 'Anime Guardians Codes',
+        gameSlug: 'anime-guardians',
+        description: 'All working codes for Anime Guardians. Free currency packs, trait rerolls, and limit breakers! Updated January 2026.',
+        howToRedeem: [
+            'Launch <strong>Anime Guardians</strong> on Roblox',
+            'Reach Level 5 to unlock codes',
+            'Click the <strong>Codes</strong> button on the right side',
+            'Enter code and press <strong>Redeem</strong>!'
+        ],
+        activeCodes: [
+            { code: 'FREE_CURRENCYPACK', reward: 'Free Currency Pack', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'UPDATE_22.5', reward: 'Freebies', status: 'new', addedDate: 'Jan 2026' },
+            { code: 'THREE_GODS', reward: 'Freebies', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'UPD22', reward: 'Freebies', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'FATE_UPDATE', reward: 'Freebies', status: 'active', addedDate: 'Jan 2026' },
+            { code: 'UPD21', reward: '1 Limit Breaker', status: 'active', addedDate: 'Dec 2025' },
+            { code: 'CHRISTMAS', reward: '1,000 Trait Rerolls + 5 Capsules', status: 'active', addedDate: 'Dec 2025' },
+        ],
+        expiredCodes: [
+            { code: 'EASTER2025', reward: 'Easter Rewards', status: 'expired', addedDate: 'Apr 2025' },
+            { code: '1BILLION', reward: 'Celebration Pack', status: 'expired', addedDate: 'Mar 2025' },
+        ],
+        socialLinks: {
+            twitter: 'https://twitter.com/AnimeGuardiansRBX',
+            discord: 'https://discord.gg/animeguardians',
+            robloxGame: 'https://www.roblox.com/games/anime-guardians'
+        },
+        relatedTools: [
+            { href: '/anime-guardians/ag-tier-list', label: 'Unit Tier List' },
+            { href: '/anime-guardians/ag-artifact-calculator', label: 'Artifact Calculator' }
+        ]
     }
 }
 

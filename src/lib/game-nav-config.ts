@@ -18,7 +18,10 @@ import {
     Anchor,
     Hexagon,
     Flower,
-    Calculator
+    Calculator,
+    Leaf,
+    Shield,
+    Hammer
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -141,6 +144,32 @@ export const GAME_NAV_CONFIG: Record<string, NavItem[]> = {
         { href: '/tier-list', label: 'Tier List', icon: Trophy },
         { href: '/codes', label: 'Codes', icon: Gift },
         { href: '/calibrate', label: 'Calibrate', icon: Crosshair },
+    ],
+
+    // ===== NEW GAMES (Jan 2026) =====
+
+    // Plants Vs Brainrots 导航
+    pvb: [
+        { href: '/pvb-dps-calculator', label: 'DPS', icon: Sword, isNew: true },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+    ],
+
+    // The Forge 导航
+    forge: [
+        { href: '/forge-calculator', label: 'Forge', icon: Hammer, isNew: true },
+        { href: '/tier-list', label: 'Tier List', icon: Trophy },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+    ],
+
+    // Anime Guardians 导航
+    ag: [
+        { href: '/ag-tier-list', label: 'Tier List', icon: Trophy, isNew: true },
+        { href: '/ag-artifact-calculator', label: 'Artifact', icon: Shield },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
     ],
 }
 

@@ -261,6 +261,75 @@ export const STATIC_GAMES: Record<string, GameConfig> = {
                 'grow a garden guide 2026'
             ]
         }
+    },
+    'plants-vs-brainrots': {
+        game_key: 'pvb',
+        slug: 'plants-vs-brainrots',
+        display_name: 'PvB',
+        full_name: 'Plants Vs Brainrots',
+        short_name: 'PvB',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#22c55e', icon: 'leaf' },  // Green (Plants)
+        seo: {
+            title_template: '{page} | Plants Vs Brainrots Calculator 2026',
+            description: 'Plants Vs Brainrots calculator 2026. DPS calculator, plant tier list, mutation guide and active codes for maximum brainrot farming profits.',
+            keywords: [
+                'plants vs brainrots calculator',
+                'plants vs brainrots codes',
+                'plants vs brainrots tier list',
+                'plants vs brainrots dps',
+                'pvb calculator',
+                'plants vs brainrots guide 2026'
+            ]
+        }
+    },
+    'the-forge': {
+        game_key: 'forge',
+        slug: 'the-forge',
+        display_name: 'The Forge',
+        full_name: 'The Forge',
+        short_name: 'Forge',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#f97316', icon: 'anvil' },  // Orange (Forge fire)
+        seo: {
+            title_template: '{page} | The Forge Calculator 2026',
+            description: 'The Forge calculator 2026. Forge weapon calculator, ore tier list, and crafting optimizer for the best equipment builds.',
+            keywords: [
+                'the forge roblox calculator',
+                'the forge codes',
+                'the forge ore tier list',
+                'the forge weapon calculator',
+                'the forge crafting guide',
+                'the forge roblox guide 2026'
+            ]
+        }
+    },
+    'anime-guardians': {
+        game_key: 'ag',
+        slug: 'anime-guardians',
+        display_name: 'Anime Guardians',
+        full_name: 'Anime Guardians',
+        short_name: 'AG',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: false,
+        theme: { accent: '#8b5cf6', icon: 'shield' },  // Purple (Anime)
+        seo: {
+            title_template: '{page} | Anime Guardians Calculator 2026',
+            description: 'Anime Guardians calculator 2026. Unit tier list, artifact calculator, and summoning guide for the best tower defense strategy.',
+            keywords: [
+                'anime guardians tier list',
+                'anime guardians codes',
+                'anime guardians calculator',
+                'anime guardians artifact',
+                'anime guardians best units',
+                'anime guardians guide 2026'
+            ]
+        }
     }
 }
 
