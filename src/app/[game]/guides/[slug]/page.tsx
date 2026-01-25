@@ -10,22 +10,29 @@ import { BookOpen, Clock, ArrowLeft, Share2, TrendingUp, Sword, Coins, Lightbulb
 
 // 动态生成 metadata
 export async function generateMetadata({ params }: { params: Promise<{ game: string; slug: string }> }): Promise<Metadata> {
-    const { slug } = await params
+    const { game, slug } = await params
     const guide = getGuide(slug)
 
     if (!guide) {
         return { title: 'Guide Not Found' }
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
+    const canonicalUrl = `${baseUrl}/${game}/guides/${slug}`
+
     return {
         title: `${guide.title} | AFSE Guide`,
         description: guide.description,
         keywords: guide.tags,
+        alternates: {
+            canonical: canonicalUrl,
+        },
         openGraph: {
             title: guide.title,
             description: guide.description,
             type: 'article',
             publishedTime: guide.publishedAt,
+            url: canonicalUrl,
         }
     }
 }

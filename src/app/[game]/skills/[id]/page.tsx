@@ -36,9 +36,21 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const { id } = await params
     const skill = await getSkill(id)
     if (!skill) return { title: 'Skill Not Found' }
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
+    const canonicalUrl = `${baseUrl}/afse/skills/${id}`
+
     return {
         title: `${skill.skill_name} | AFSE Skill Stats`,
-        description: `${skill.skill_name} - Damage: ${skill.base_damage}, Cooldown: ${skill.cooldown_sec}s, Tier: ${skill.tier}`
+        description: `${skill.skill_name} - Damage: ${skill.base_damage}, Cooldown: ${skill.cooldown_sec}s, Tier: ${skill.tier}`,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title: `${skill.skill_name} | AFSE Skill Stats`,
+            description: `${skill.skill_name} - Damage: ${skill.base_damage}, Cooldown: ${skill.cooldown_sec}s, Tier: ${skill.tier}`,
+            url: canonicalUrl,
+        }
     }
 }
 

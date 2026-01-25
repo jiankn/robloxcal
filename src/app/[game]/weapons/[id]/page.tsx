@@ -49,6 +49,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         return { title: 'Weapon Not Found' }
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
+    const canonicalUrl = `${baseUrl}/afse/weapons/${id}`
+
     return {
         title: `${weapon.weapon_name} | AFSE Weapon Stats`,
         description: `${weapon.weapon_name} stats and info for Anime Fighting Simulator Endless. Base damage: ${weapon.base_damage}, Attack speed: ${weapon.attack_speed}x, Tier: ${weapon.tier}`,
@@ -56,7 +59,15 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
             `${weapon.weapon_name.toLowerCase()} afse`,
             'afse weapon',
             `${weapon.tier} tier weapon afse`
-        ]
+        ],
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title: `${weapon.weapon_name} | AFSE Weapon Stats`,
+            description: `${weapon.weapon_name} stats and info for Anime Fighting Simulator Endless. Base damage: ${weapon.base_damage}, Attack speed: ${weapon.attack_speed}x, Tier: ${weapon.tier}`,
+            url: canonicalUrl,
+        }
     }
 }
 

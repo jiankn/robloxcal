@@ -36,9 +36,21 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     const { id } = await params
     const t = await getTransformation(id)
     if (!t) return { title: 'Form Not Found' }
+
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
+    const canonicalUrl = `${baseUrl}/afse/transformations/${id}`
+
     return {
         title: `${t.transformation_name} | AFSE Transformation`,
-        description: `${t.transformation_name} - ${t.damage_multiplier}x damage multiplier. Tier: ${t.tier}`
+        description: `${t.transformation_name} - ${t.damage_multiplier}x damage multiplier. Tier: ${t.tier}`,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title: `${t.transformation_name} | AFSE Transformation`,
+            description: `${t.transformation_name} - ${t.damage_multiplier}x damage multiplier. Tier: ${t.tier}`,
+            url: canonicalUrl,
+        }
     }
 }
 
