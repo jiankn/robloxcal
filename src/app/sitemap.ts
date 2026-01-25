@@ -29,6 +29,10 @@ const GAME_KEY_TO_SLUG: Record<string, string> = {
     'pvb': 'plants-vs-brainrots',
     'forge': 'the-forge',
     'ag': 'anime-guardians',
+    // New Games (Jan 25, 2026)
+    'bf': 'blox-fruits',
+    'am': 'adopt-me',
+    'srng': 'sols-rng',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

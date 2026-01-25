@@ -21,7 +21,12 @@ import {
     Calculator,
     Leaf,
     Shield,
-    Hammer
+    Hammer,
+    Cherry,
+    Heart,
+    Sparkles,
+    Crown,
+    Dice6
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -168,6 +173,35 @@ export const GAME_NAV_CONFIG: Record<string, NavItem[]> = {
     ag: [
         { href: '/ag-tier-list', label: 'Tier List', icon: Trophy, isNew: true },
         { href: '/ag-artifact-calculator', label: 'Artifact', icon: Shield },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+    ],
+
+    // ===== NEW GAMES (Jan 25, 2026) =====
+
+    // Blox Fruits 导航
+    bf: [
+        { href: '/bf-stat-calculator', label: 'Stats', icon: Target, isNew: true },
+        { href: '/bf-mastery-calculator', label: 'Mastery', icon: TrendingUp },
+        { href: '/bf-fruit-value', label: 'Fruit Value', icon: Cherry },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+    ],
+
+    // Adopt Me 导航
+    am: [
+        { href: '/am-neon-calculator', label: 'Neon', icon: Sparkles, isNew: true },
+        { href: '/am-mega-calculator', label: 'Mega', icon: Crown },
+        { href: '/am-trade-calculator', label: 'Trade', icon: RefreshCw },
+        { href: '/wiki', label: 'Wiki', icon: Library },
+        { href: '/codes', label: 'Codes', icon: Gift },
+    ],
+
+    // Sol's RNG 导航
+    srng: [
+        { href: '/srng-aura-odds', label: 'Aura Odds', icon: Dice6, isNew: true },
+        { href: '/srng-luck-calculator', label: 'Luck', icon: Sparkles },
+        { href: '/srng-crafting', label: 'Crafting', icon: Hammer },
         { href: '/wiki', label: 'Wiki', icon: Library },
         { href: '/codes', label: 'Codes', icon: Gift },
     ],

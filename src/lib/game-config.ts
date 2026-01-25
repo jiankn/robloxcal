@@ -330,6 +330,79 @@ export const STATIC_GAMES: Record<string, GameConfig> = {
                 'anime guardians guide 2026'
             ]
         }
+    },
+    // ===== NEW GAMES (Jan 25, 2026) =====
+    'blox-fruits': {
+        game_key: 'bf',
+        slug: 'blox-fruits',
+        display_name: 'Blox Fruits',
+        full_name: 'Blox Fruits',
+        short_name: 'BF',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: true,
+        theme: { accent: '#6366f1', icon: 'cherry' },
+        seo: {
+            title_template: '{page} | Blox Fruits Calculator 2026',
+            description: 'Blox Fruits calculator 2026. Stat point calculator, mastery calculator, fruit value estimator for optimal builds and trading.',
+            keywords: [
+                'blox fruits calculator',
+                'blox fruits stat calculator',
+                'blox fruits build calculator',
+                'blox fruits mastery calculator',
+                'blox fruits fruit value',
+                'blox fruits codes 2026',
+                'blox fruits level guide'
+            ]
+        }
+    },
+    'adopt-me': {
+        game_key: 'am',
+        slug: 'adopt-me',
+        display_name: 'Adopt Me',
+        full_name: 'Adopt Me!',
+        short_name: 'AM',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: true,
+        theme: { accent: '#ec4899', icon: 'heart' },
+        seo: {
+            title_template: '{page} | Adopt Me Calculator 2026',
+            description: 'Adopt Me calculator 2026. Neon calculator, mega neon calculator, trade value estimator for smart pet trading.',
+            keywords: [
+                'adopt me calculator',
+                'adopt me neon calculator',
+                'adopt me mega neon calculator',
+                'adopt me trade value',
+                'adopt me WFL calculator',
+                'adopt me codes 2026',
+                'adopt me pet values'
+            ]
+        }
+    },
+    'sols-rng': {
+        game_key: 'srng',
+        slug: 'sols-rng',
+        display_name: "Sol's RNG",
+        full_name: "Sol's RNG",
+        short_name: 'SRNG',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: true,
+        theme: { accent: '#f59e0b', icon: 'sparkles' },
+        seo: {
+            title_template: "{page} | Sol's RNG Calculator 2026",
+            description: "Sol's RNG calculator 2026. Aura odds calculator, luck multiplier calculator, crafting guide for optimal rolling strategy.",
+            keywords: [
+                'sols rng calculator',
+                'sols rng aura odds',
+                'sols rng expected rolls',
+                'sols rng luck multiplier',
+                'sols rng potion calculator',
+                'sols rng crafting guide',
+                'sols rng codes 2026'
+            ]
+        }
     }
 }
 
