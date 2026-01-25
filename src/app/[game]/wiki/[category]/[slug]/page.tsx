@@ -129,13 +129,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         return { title: 'Not Found' }
     }
 
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robloxcal.com'
+    const canonicalUrl = `${baseUrl}/${game}/wiki/${category}/${slug}`
+
     return {
         title: entry.title,
         description: entry.excerpt,
         keywords: entry.seo_keywords?.join(', '),
+        alternates: {
+            canonical: canonicalUrl,
+        },
         openGraph: {
             title: entry.title,
             description: entry.excerpt,
+            url: canonicalUrl,
         }
     }
 }
