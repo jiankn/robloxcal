@@ -62,6 +62,8 @@ const CATEGORY_LABELS: Record<string, string> = {
     upgrades: '⬆️ Upgrades',
     brainrots: '🧠 Brainrots',
     mechanics: '⚙️ Mechanics',
+    // New Games: Sols RNG
+    auras: '✨ Auras',
 }
 
 const RARITY_COLORS: Record<string, string> = {
@@ -100,7 +102,11 @@ export default function WikiListPage() {
                 // New Games (Jan 2026)
                 'plants-vs-brainrots': 'pvb',
                 'the-forge': 'forge',
-                'anime-guardians': 'ag'
+                'anime-guardians': 'ag',
+                // New Games (Jan 25, 2026)
+                'blox-fruits': 'bf',
+                'adopt-me': 'am',
+                'sols-rng': 'srng',
             }
             const gameKey = gameKeyMap[gameSlug] || gameSlug
 

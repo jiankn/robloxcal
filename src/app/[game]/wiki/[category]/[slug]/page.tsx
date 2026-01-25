@@ -31,7 +31,11 @@ const GAME_KEY_MAP: Record<string, string> = {
     // New Games (Jan 2026)
     'plants-vs-brainrots': 'pvb',
     'the-forge': 'forge',
-    'anime-guardians': 'ag'
+    'anime-guardians': 'ag',
+    // New Games (Jan 25, 2026)
+    'blox-fruits': 'bf',
+    'adopt-me': 'am',
+    'sols-rng': 'srng',
 }
 
 const GAME_NAMES: Record<string, string> = {
@@ -49,7 +53,11 @@ const GAME_NAMES: Record<string, string> = {
     // New Games (Jan 2026)
     'plants-vs-brainrots': 'Plants Vs Brainrots',
     'the-forge': 'The Forge',
-    'anime-guardians': 'Anime Guardians'
+    'anime-guardians': 'Anime Guardians',
+    // New Games (Jan 25, 2026)
+    'blox-fruits': 'Blox Fruits',
+    'adopt-me': 'Adopt Me',
+    'sols-rng': "Sol's RNG",
 }
 
 // 游戏主题色 - 用于渐变背景
@@ -107,6 +115,19 @@ const GAME_THEMES: Record<string, { accent: string; gradient: string }> = {
     'anime-guardians': {
         accent: '#8b5cf6',
         gradient: 'from-violet-950/30 via-transparent to-transparent'
+    },
+    // New Games (Jan 25, 2026)
+    'blox-fruits': {
+        accent: '#3b82f6',
+        gradient: 'from-blue-950/30 via-transparent to-transparent'
+    },
+    'adopt-me': {
+        accent: '#ec4899',
+        gradient: 'from-pink-950/30 via-transparent to-transparent'
+    },
+    'sols-rng': {
+        accent: '#f59e0b',
+        gradient: 'from-amber-950/30 via-transparent to-transparent'
     }
 }
 
