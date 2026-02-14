@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
-import { Info, Target, Sword, Shield, Zap, Cherry, Gun } from 'lucide-react'
+import { Info, Target, Sword, Shield, Zap, Cherry, Crosshair } from 'lucide-react'
 import { HowItWorks } from '@/components/HowItWorks'
 
 // Build presets
@@ -24,7 +24,7 @@ const STATS = [
     { id: 'melee', name: 'Melee', icon: Zap, color: 'text-red-400', description: 'Increases melee damage' },
     { id: 'defense', name: 'Defense', icon: Shield, color: 'text-blue-400', description: 'Reduces damage taken' },
     { id: 'sword', name: 'Sword', icon: Sword, color: 'text-orange-400', description: 'Increases sword damage' },
-    { id: 'gun', name: 'Gun', icon: Gun, color: 'text-yellow-400', description: 'Increases gun damage' },
+    { id: 'gun', name: 'Gun', icon: Crosshair, color: 'text-yellow-400', description: 'Increases gun damage' },
     { id: 'fruit', name: 'Fruit', icon: Cherry, color: 'text-purple-400', description: 'Increases fruit damage' },
 ]
 
