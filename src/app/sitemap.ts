@@ -36,7 +36,11 @@ const GAME_KEY_TO_SLUG: Record<string, string> = {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const currentDate = new Date().toISOString()
+    // 使用固定日期，避免每次请求都生成新时间戳
+    // Google 会对比 sitemap 的内容 hash，动态时间戳导致每次都不同
+    // 更新页面内容时手动更新对应日期即可
+    const SITE_LAUNCH_DATE = '2026-01-25T00:00:00.000Z'
+    const LAST_CONTENT_UPDATE = '2026-02-14T00:00:00.000Z'
     const games = getAllActiveGames()
     const supabase = createPublicServerClient()
 
@@ -54,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // 首页 - 游戏目录
         {
             url: BASE_URL,
-            lastModified: currentDate,
+            lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: 'daily',
             priority: 1.0,
         }
@@ -67,7 +71,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // 游戏主页
         sitemapEntries.push({
             url: gamePrefix,
-            lastModified: currentDate,
+            lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: 'daily',
             priority: 0.95,
         })
@@ -75,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Codes 页面（每个游戏都有）
         sitemapEntries.push({
             url: `${gamePrefix}/codes`,
-            lastModified: currentDate,
+            lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: 'daily',
             priority: 0.9,
         })
@@ -83,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Calibrate 页面
         sitemapEntries.push({
             url: `${gamePrefix}/calibrate`,
-            lastModified: currentDate,
+            lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: 'monthly',
             priority: 0.7,
         })
@@ -91,7 +95,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Wiki 主页
         sitemapEntries.push({
             url: `${gamePrefix}/wiki`,
-            lastModified: currentDate,
+            lastModified: LAST_CONTENT_UPDATE,
             changeFrequency: 'daily',
             priority: 0.9,
         })
@@ -105,7 +109,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             for (const tool of gameData.tools) {
                 sitemapEntries.push({
                     url: `${gamePrefix}/${tool.slug}`,
-                    lastModified: currentDate,
+                    lastModified: LAST_CONTENT_UPDATE,
                     changeFrequency: 'weekly',
                     priority: 0.9,
                 })
@@ -117,7 +121,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // DPS Calculator
             sitemapEntries.push({
                 url: `${gamePrefix}/dps`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -125,7 +129,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // Tier List
             sitemapEntries.push({
                 url: `${gamePrefix}/tier-list`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -133,7 +137,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // Training Areas
             sitemapEntries.push({
                 url: `${gamePrefix}/training-areas`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -141,7 +145,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // Guides
             sitemapEntries.push({
                 url: `${gamePrefix}/guides`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -150,7 +154,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             for (const slug of guidesSlugs) {
                 sitemapEntries.push({
                     url: `${gamePrefix}/guides/${slug}`,
-                    lastModified: currentDate,
+                    lastModified: LAST_CONTENT_UPDATE,
                     changeFrequency: 'monthly',
                     priority: 0.7,
                 })
@@ -159,14 +163,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // Tracker & Compare
             sitemapEntries.push({
                 url: `${gamePrefix}/tracker`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/compare`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -174,21 +178,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // Weapons, Skills, Transformations
             sitemapEntries.push({
                 url: `${gamePrefix}/weapons`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/skills`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/transformations`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -196,7 +200,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             // FAQ
             sitemapEntries.push({
                 url: `${gamePrefix}/faq`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'monthly',
                 priority: 0.6,
             })
@@ -206,7 +210,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             for (const stat of statTypes) {
                 sitemapEntries.push({
                     url: `${gamePrefix}/training-areas/${stat}`,
-                    lastModified: currentDate,
+                    lastModified: LAST_CONTENT_UPDATE,
                     changeFrequency: 'weekly',
                     priority: 0.7,
                 })
@@ -217,7 +221,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'bomb-chip') {
             sitemapEntries.push({
                 url: `${gamePrefix}/odds`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -227,7 +231,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'craft-a-brainrot') {
             sitemapEntries.push({
                 url: `${gamePrefix}/recipes`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -237,28 +241,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'rvb-tycoon') {
             sitemapEntries.push({
                 url: `${gamePrefix}/optimizer`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/rebirth`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/weapons`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
 
             sitemapEntries.push({
                 url: `${gamePrefix}/tier-list`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
             })
@@ -268,13 +272,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'plants-vs-brainrots') {
             sitemapEntries.push({
                 url: `${gamePrefix}/pvb-dps-calculator`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
             sitemapEntries.push({
                 url: `${gamePrefix}/pvb-tier-list`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -284,13 +288,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'the-forge') {
             sitemapEntries.push({
                 url: `${gamePrefix}/forge-calculator`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
             sitemapEntries.push({
                 url: `${gamePrefix}/forge-tier-list`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -300,13 +304,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         if (game.slug === 'anime-guardians') {
             sitemapEntries.push({
                 url: `${gamePrefix}/ag-artifact-calculator`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
             sitemapEntries.push({
                 url: `${gamePrefix}/ag-tier-list`,
-                lastModified: currentDate,
+                lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.9,
             })
@@ -322,7 +326,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             if (gameSlug) {
                 sitemapEntries.push({
                     url: `${BASE_URL}/${gameSlug}/wiki/${entry.category}/${entry.slug}`,
-                    lastModified: entry.updated_at || currentDate,
+                    lastModified: entry.updated_at || LAST_CONTENT_UPDATE,
                     changeFrequency: 'weekly',
                     priority: 0.8,
                 })
@@ -335,7 +339,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // ============================================
     sitemapEntries.push({
         url: `${BASE_URL}/roblox-tax-calculator`,
-        lastModified: currentDate,
+        lastModified: LAST_CONTENT_UPDATE,
         changeFrequency: 'monthly',
         priority: 0.9, // 高价值工具页面
     })
@@ -345,14 +349,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // ============================================
     sitemapEntries.push({
         url: `${BASE_URL}/about`,
-        lastModified: currentDate,
+        lastModified: LAST_CONTENT_UPDATE,
         changeFrequency: 'monthly',
         priority: 0.5,
     })
 
     sitemapEntries.push({
         url: `${BASE_URL}/contact`,
-        lastModified: currentDate,
+        lastModified: LAST_CONTENT_UPDATE,
         changeFrequency: 'yearly',
         priority: 0.4,
     })
@@ -360,14 +364,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // 通用页面（不属于特定游戏）
     sitemapEntries.push({
         url: `${BASE_URL}/privacy`,
-        lastModified: currentDate,
+        lastModified: LAST_CONTENT_UPDATE,
         changeFrequency: 'yearly',
         priority: 0.3,
     })
 
     sitemapEntries.push({
         url: `${BASE_URL}/terms`,
-        lastModified: currentDate,
+        lastModified: LAST_CONTENT_UPDATE,
         changeFrequency: 'yearly',
         priority: 0.3,
     })
