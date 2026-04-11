@@ -62,6 +62,17 @@ export const metadata: Metadata = {
 // 游戏数据（SEO 权重分发）
 const featuredGames = [
   {
+    slug: 'sailor-piece',
+    name: 'Sailor Piece',
+    shortName: 'Sailor Piece',
+    tagline: 'Stat Planner + Codes Tracker',
+    icon: 'castle',
+    color: 'blue',
+    badge: 'Trending',
+    codesCount: 0,
+    lastUpdated: 'Tracking now'
+  },
+  {
     slug: 'afse',
     name: 'Anime Fighting Simulator: Endless',
     shortName: 'AFSE',
@@ -116,6 +127,7 @@ const FEATURED_GAME_STYLES: Record<string, { iconWrap: string; icon: string }> =
 
 // 最新 Codes 更新
 const latestCodeUpdates = [
+  { game: 'Sailor Piece', slug: 'sailor-piece', newCodes: 0, activeCodes: 0, updatedAt: 'Tracking now' },
   { game: 'RVB Tycoon', slug: 'rvb-tycoon', newCodes: 7, activeCodes: 7, updatedAt: 'Just now' },
   { game: 'AFSE', slug: 'afse', newCodes: 2, activeCodes: 12, updatedAt: '2 hours ago' },
   { game: 'Brainrot', slug: 'craft-a-brainrot', newCodes: 1, activeCodes: 8, updatedAt: '3 hours ago' },

@@ -106,6 +106,7 @@ function GamesDropdown() {
 
 // Codes更新数据
 const codesUpdates = [
+    { game: 'Sailor Piece', slug: 'sailor-piece', newCodes: 0, activeCodes: 0, updatedAt: 'Tracking now' },
     { game: 'RVB Tycoon', slug: 'rvb-tycoon', newCodes: 7, activeCodes: 7, updatedAt: 'Just now' },
     { game: 'AFSE', slug: 'afse', newCodes: 2, activeCodes: 12, updatedAt: '2 hours ago' },
     { game: 'Brainrot', slug: 'craft-a-brainrot', newCodes: 1, activeCodes: 8, updatedAt: '3 hours ago' },

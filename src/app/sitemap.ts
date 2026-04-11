@@ -33,6 +33,7 @@ const GAME_KEY_TO_SLUG: Record<string, string> = {
     'bf': 'blox-fruits',
     'am': 'adopt-me',
     'srng': 'sols-rng',
+    'sp': 'sailor-piece',
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -265,6 +266,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 lastModified: LAST_CONTENT_UPDATE,
                 changeFrequency: 'weekly',
                 priority: 0.8,
+            })
+        }
+
+        if (game.slug === 'sailor-piece') {
+            sitemapEntries.push({
+                url: `${gamePrefix}/sp-stat-planner`,
+                lastModified: LAST_CONTENT_UPDATE,
+                changeFrequency: 'weekly',
+                priority: 0.9,
             })
         }
 

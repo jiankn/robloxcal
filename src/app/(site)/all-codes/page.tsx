@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 // Codes更新数据 - 与Navbar保持同步
 const codesData = [
+    { game: 'Sailor Piece', slug: 'sailor-piece', newCodes: 0, activeCodes: 0, updatedAt: 'Tracking now', color: 'blue' },
     { game: 'RVB Tycoon', slug: 'rvb-tycoon', newCodes: 7, activeCodes: 7, updatedAt: 'Just now', color: 'red' },
     { game: 'AFSE', slug: 'afse', newCodes: 2, activeCodes: 12, updatedAt: '2 hours ago', color: 'purple' },
     { game: 'Brainrot', slug: 'craft-a-brainrot', newCodes: 1, activeCodes: 8, updatedAt: '3 hours ago', color: 'blue' },

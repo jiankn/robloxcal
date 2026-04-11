@@ -269,6 +269,26 @@ export const GAME_CODES: Record<string, GameCodesData> = {
             { href: '/anime-guardians/ag-tier-list', label: 'Unit Tier List' },
             { href: '/anime-guardians/ag-artifact-calculator', label: 'Artifact Calculator' }
         ]
+    },
+    'sailor-piece': {
+        gameName: 'Sailor Piece Codes',
+        gameSlug: 'sailor-piece',
+        description: 'Track new Sailor Piece codes, free rewards, and quick redemption steps in one place. We update this page as soon as verified Sailor Piece codes appear.',
+        howToRedeem: [
+            'Launch <strong>Sailor Piece</strong> on Roblox',
+            'Look for a <strong>Codes</strong>, <strong>Gift</strong>, or <strong>Twitter</strong> button in the game UI',
+            'Enter the code exactly as shown',
+            'Press <strong>Redeem</strong> and claim your rewards if the code is still active'
+        ],
+        activeCodes: [],
+        expiredCodes: [],
+        socialLinks: {
+            robloxGame: 'https://www.roblox.com/games/77747658251236'
+        },
+        relatedTools: [
+            { href: '/sailor-piece/sp-stat-planner', label: 'Stat Planner' },
+            { href: '/sailor-piece', label: 'Sailor Piece Hub' }
+        ]
     }
 }
 

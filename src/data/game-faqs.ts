@@ -177,6 +177,26 @@ export const GAME_FAQS: Record<string, FaqItem[]> = {
             question: "How long does it take to level up pets?",
             answer: "XP requirements increase each level. Our Pet XP Calculator shows exactly how much XP you need and estimates time based on your feeding rate."
         }
+    ],
+
+    // Sailor Piece
+    'sailor-piece': [
+        {
+            question: "What does the Sailor Piece Stat Planner help with?",
+            answer: "It helps you compare different stat distributions before you commit points in-game. You can test sword, fruit, tank, and balanced builds to see where your next levels should go."
+        },
+        {
+            question: "Should I focus sword or fruit first in Sailor Piece?",
+            answer: "That depends on your current loadout and farming speed. A sword-heavy setup gives steadier direct damage, while a fruit-heavy setup can be better if your fruit is carrying your grind. Use the planner to compare both routes."
+        },
+        {
+            question: "Does RobloxCal show official Sailor Piece formulas?",
+            answer: "No. RobloxCal is a fan-made planning tool. The planner is meant for build comparison and progression planning rather than claiming official developer formulas."
+        },
+        {
+            question: "Where will new Sailor Piece codes appear?",
+            answer: "We track verified codes on the Sailor Piece codes page. If no active codes are listed, it means we have not verified any live code yet."
+        }
     ]
 }
 

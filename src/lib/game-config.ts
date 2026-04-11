@@ -403,6 +403,29 @@ export const STATIC_GAMES: Record<string, GameConfig> = {
                 'sols rng codes 2026'
             ]
         }
+    },
+    'sailor-piece': {
+        game_key: 'sp',
+        slug: 'sailor-piece',
+        display_name: 'Sailor Piece',
+        full_name: 'Sailor Piece',
+        short_name: 'SP',
+        platform: 'roblox',
+        is_active: true,
+        is_featured: true,
+        theme: { accent: '#06b6d4', icon: 'anchor' },
+        seo: {
+            title_template: '{page} | Sailor Piece Calculator 2026',
+            description: 'Sailor Piece calculator hub on RobloxCal. Use the Sailor Piece stat planner, track codes, and access quick progression tools for early and mid-game builds.',
+            keywords: [
+                'sailor piece calculator',
+                'sailor piece stat planner',
+                'sailor piece build calculator',
+                'sailor piece codes',
+                'sailor piece guide',
+                'sailor piece roblox'
+            ]
+        }
     }
 }
 

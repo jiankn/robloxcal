@@ -87,6 +87,12 @@ const NEW_GAME_TOOLS: Record<string, Array<{
         { slug: 'wiki', title: 'Wiki', description: 'Crops, pets, and gardening tips', icon: BookOpen, color: 'indigo' },
         { slug: 'tier-list', title: 'Tier List', description: 'Best crops and pets ranked', icon: Trophy, color: 'yellow' },
         { slug: 'codes', title: 'Active Codes', description: 'Free seeds and coins', icon: Gift, color: 'green' }
+    ],
+    'sailor-piece': [
+        { slug: 'sp-stat-planner', title: 'Stat Planner', description: 'Plan melee, defense, sword, gun, and fruit point allocation for your next build', icon: BarChart3, color: 'blue', badge: 'Main Tool' },
+        { slug: 'codes', title: 'Codes Tracker', description: 'Track new Sailor Piece codes and free rewards', icon: Gift, color: 'green' },
+        { slug: 'calibrate', title: 'Calibrate', description: 'Submit live data to help improve future Sailor Piece tools', icon: Crosshair, color: 'purple' },
+        { slug: 'wiki', title: 'Wiki', description: 'Browse Sailor Piece pages as they are published', icon: BookOpen, color: 'indigo' }
     ]
 }
 
@@ -367,7 +373,7 @@ function GameHubPortal({ game }: { game: GameConfig }) {
                 </section>
 
                 <HowItWorks toolType={game.game_key} />
-                <FaqSection />
+                <FaqSection gameSlug={game.slug} />
             </AdLayout>
         </>
     )
@@ -396,7 +402,8 @@ export default function GamePage() {
         'fish-it',
         'fisch',
         'bee-swarm-simulator',
-        'grow-a-garden'
+        'grow-a-garden',
+        'sailor-piece'
     ]
 
     if (NEW_GAME_SLUGS.includes(game.slug)) {

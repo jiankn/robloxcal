@@ -25,10 +25,10 @@ export function GameLogo({
     fallbackClassName = '',
     priority = false
 }: GameLogoProps) {
-    const [hasError, setHasError] = useState(false)
-    const logoPath = `/games/logos/${slug}.webp`
+    const [logoFormat, setLogoFormat] = useState<'webp' | 'png' | 'fallback'>('webp')
+    const logoPath = `/games/logos/${slug}.${logoFormat === 'webp' ? 'webp' : 'png'}`
 
-    if (hasError) {
+    if (logoFormat === 'fallback') {
         // Fallback 到通用图标
         return (
             <div
@@ -47,7 +47,13 @@ export function GameLogo({
             width={size}
             height={size}
             className={`rounded-lg object-cover ${className}`}
-            onError={() => setHasError(true)}
+            onError={() => {
+                if (logoFormat === 'webp') {
+                    setLogoFormat('png')
+                } else {
+                    setLogoFormat('fallback')
+                }
+            }}
             priority={priority}
             loading={priority ? undefined : 'lazy'}
             sizes={`${size}px`}

@@ -76,7 +76,8 @@ export default async function GameLayout({ children, params }: GameLayoutProps) 
         'fish-it': 'from-teal-900/60 via-teal-950/30',
         'fisch': 'from-blue-900/60 via-blue-950/30',
         'bee-swarm-simulator': 'from-yellow-900/60 via-yellow-950/30',
-        'grow-a-garden': 'from-green-900/60 via-green-950/30'
+        'grow-a-garden': 'from-green-900/60 via-green-950/30',
+        'sailor-piece': 'from-cyan-900/60 via-sky-950/30'
     }
     const gradient = themeGradients[slug] || themeGradients['afse']
 
